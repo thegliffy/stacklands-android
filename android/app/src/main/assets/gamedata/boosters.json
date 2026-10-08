@@ -1,0 +1,606 @@
+{
+"cooking": {
+"bags": [
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+}
+],
+"cost": 10,
+"isIntro": false
+},
+"idea": {
+"bags": [
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+}
+],
+"cost": 4,
+"isIntro": false
+},
+"equipment": {
+"bags": [
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+}
+],
+"cost": 15,
+"isIntro": false
+},
+"combat_intro": {
+"bags": [
+{
+"cardsInPack": 3,
+"chances": []
+}
+],
+"cost": 3,
+"isIntro": false
+},
+"basic": {
+"bags": [
+{
+"cardsInPack": 3,
+"chances": [
+{
+"card": "tree",
+"chance": 4
+},
+{
+"card": "rock",
+"chance": 4
+},
+{
+"card": "berrybush",
+"chance": 4
+},
+{
+"card": "soil",
+"chance": 4
+},
+{
+"card": "rabbit",
+"chance": 1
+},
+{
+"card": "wood",
+"chance": 6
+},
+{
+"card": "stone",
+"chance": 6
+},
+{
+"card": "rat",
+"chance": 1
+},
+{
+"card": "blueprint_growth",
+"chance": 2
+},
+{
+"card": "blueprint_carving",
+"chance": 2
+},
+{
+"card": "key",
+"chance": 1
+},
+{
+"card": "blueprint_house",
+"chance": 2
+},
+{
+"card": "blueprint_offspring",
+"chance": 2
+}
+]
+}
+],
+"cost": 3,
+"isIntro": false
+},
+"locations": {
+"bags": [
+{
+"cardsInPack": 1,
+"chances": [
+{
+"card": "rock",
+"chance": 1
+},
+{
+"card": "tree",
+"chance": 1
+},
+{
+"card": "appletree",
+"chance": 1
+}
+]
+},
+{
+"cardsInPack": 1,
+"chances": [
+{
+"card": "rat",
+"chance": 1
+},
+{
+"card": "goblin",
+"chance": 1
+},
+{
+"card": "bear",
+"chance": 1
+}
+]
+},
+{
+"cardsInPack": 1,
+"chances": [
+{
+"card": "forest",
+"chance": 1
+},
+{
+"card": "mountain",
+"chance": 1
+},
+{
+"card": "plains",
+"chance": 1
+},
+{
+"card": "old_village",
+"chance": 1
+}
+]
+}
+],
+"cost": 20,
+"isIntro": false
+},
+"starter": {
+"bags": [
+{
+"cardsInPack": 5,
+"chances": [
+{
+"card": "wood",
+"chance": 4
+},
+{
+"card": "stone",
+"chance": 4
+},
+{
+"card": "berrybush",
+"chance": 3
+},
+{
+"card": "rock",
+"chance": 3
+},
+{
+"card": "tree",
+"chance": 3
+},
+{
+"card": "blueprint_house",
+"chance": 2
+},
+{
+"card": "villager",
+"chance": 2
+},
+{
+"card": "blueprint_offspring",
+"chance": 2
+}
+]
+}
+],
+"cost": 0,
+"isIntro": true
+},
+"structures": {
+"bags": [
+{
+"cardsInPack": 1,
+"chances": [
+{
+"card": "iron_deposit",
+"chance": 1
+}
+]
+},
+{
+"cardsInPack": 2,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+}
+],
+"cost": 25,
+"isIntro": false
+},
+"farming": {
+"bags": [
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": [
+{
+"card": "rabbit",
+"chance": 1
+},
+{
+"card": "cow",
+"chance": 1
+},
+{
+"card": "chicken",
+"chance": 1
+},
+{
+"card": "soil",
+"chance": 1
+}
+]
+},
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+}
+],
+"cost": 10,
+"isIntro": false
+},
+"idea2": {
+"bags": [
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+}
+],
+"cost": 15,
+"isIntro": false
+},
+"island1": {
+"bags": [
+{
+"cardsInPack": 5,
+"chances": [
+{
+"card": "wood",
+"chance": 4
+},
+{
+"card": "stone",
+"chance": 4
+},
+{
+"card": "berrybush",
+"chance": 3
+},
+{
+"card": "rock",
+"chance": 3
+},
+{
+"card": "tree",
+"chance": 3
+},
+{
+"card": "blueprint_house",
+"chance": 2
+},
+{
+"card": "villager",
+"chance": 2
+},
+{
+"card": "blueprint_offspring",
+"chance": 2
+}
+]
+}
+],
+"cost": 0,
+"isIntro": true
+},
+"island_cooking": {
+"bags": [
+{
+"cardsInPack": 1,
+"chances": [
+{
+"card": "key",
+"chance": 1
+},
+{
+"card": "blueprint_house",
+"chance": 2
+}
+]
+},
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+}
+],
+"cost": 6,
+"isIntro": false
+},
+"island2": {
+"bags": [
+{
+"cardsInPack": 3,
+"chances": [
+{
+"card": "driftwood",
+"chance": 4
+},
+{
+"card": "sand",
+"chance": 4
+},
+{
+"card": "flint",
+"chance": 3
+},
+{
+"card": "banana_tree",
+"chance": 2
+},
+{
+"card": "fishing_spot",
+"chance": 4
+},
+{
+"card": "monkey",
+"chance": 1
+},
+{
+"card": "seagull",
+"chance": 1
+},
+{
+"card": "cotton_plant",
+"chance": 3
+},
+{
+"card": "banana",
+"chance": 2
+},
+{
+"card": "seaweed",
+"chance": 1
+}
+]
+}
+],
+"cost": 3,
+"isIntro": false
+},
+"island_advanced": {
+"bags": [
+{
+"cardsInPack": 1,
+"chances": [
+{
+"card": "key",
+"chance": 1
+},
+{
+"card": "blueprint_house",
+"chance": 2
+}
+]
+},
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 2,
+"chances": []
+}
+],
+"cost": 12,
+"isIntro": false
+},
+"island_ideas_1": {
+"bags": [
+{
+"cardsInPack": 1,
+"chances": [
+{
+"card": "key",
+"chance": 1
+},
+{
+"card": "blueprint_house",
+"chance": 2
+}
+]
+},
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+}
+],
+"cost": 4,
+"isIntro": false
+},
+"island_locations": {
+"bags": [
+{
+"cardsInPack": 1,
+"chances": [
+{
+"card": "rock",
+"chance": 1
+},
+{
+"card": "tree",
+"chance": 1
+},
+{
+"card": "appletree",
+"chance": 1
+}
+]
+},
+{
+"cardsInPack": 1,
+"chances": [
+{
+"card": "rat",
+"chance": 1
+},
+{
+"card": "goblin",
+"chance": 1
+},
+{
+"card": "bear",
+"chance": 1
+}
+]
+},
+{
+"cardsInPack": 1,
+"chances": [
+{
+"card": "jungle",
+"chance": 1
+},
+{
+"card": "mountain",
+"chance": 1
+},
+{
+"card": "cave",
+"chance": 1
+},
+{
+"card": "old_village",
+"chance": 1
+}
+]
+},
+{
+"cardsInPack": 1,
+"chances": []
+}
+],
+"cost": 15,
+"isIntro": false
+},
+"island_intro": {
+"bags": [
+{
+"cardsInPack": 3,
+"chances": []
+}
+],
+"cost": 3,
+"isIntro": false
+},
+"island_ideas_2": {
+"bags": [
+{
+"cardsInPack": 1,
+"chances": [
+{
+"card": "message_in_a_bottle_advanced",
+"chance": 1
+}
+]
+},
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+},
+{
+"cardsInPack": 1,
+"chances": []
+}
+],
+"cost": 10,
+"isIntro": false
+}
+}

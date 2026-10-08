@@ -1,0 +1,8971 @@
+{
+"blueprint_stable_portal": {
+"id": "blueprint_stable_portal",
+"name": "Stable Portal",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"brick",
+"brick",
+"magic_dust",
+"magic_dust",
+"any_villager"
+],
+"remove": [
+"brick",
+"magic_dust",
+"brick",
+"brick",
+"magic_dust"
+],
+"result": "stable_portal",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_smithy": {
+"id": "blueprint_smithy",
+"name": "Smithy",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"any_villager",
+"iron_bar",
+"iron_bar",
+"brick",
+"brick"
+],
+"remove": [],
+"result": "smithy",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"mage": {
+"id": "mage",
+"name": "Mage",
+"desc": "A post-grad Wizard",
+"value": -1,
+"icon": "Mage",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"archer": {
+"id": "archer",
+"name": "Archer",
+"desc": "Afraid to get too close",
+"value": -1,
+"icon": "Archer",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"miner": {
+"id": "miner",
+"name": "Miner",
+"desc": "Way faster at harvesting Rock, Gold & Iron",
+"value": -1,
+"icon": "Miner",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"builder": {
+"id": "builder",
+"name": "Builder",
+"desc": "Way faster at Building",
+"value": -1,
+"icon": "Builder",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"warrior": {
+"id": "warrior",
+"name": "Warrior",
+"desc": "A Villager who goes to the gym",
+"value": -1,
+"icon": "Warrior",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"ninja": {
+"id": "ninja",
+"name": "Ninja",
+"desc": "Silent and deadly",
+"value": -1,
+"icon": "Ninja",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"wizard": {
+"id": "wizard",
+"name": "Wizard",
+"desc": "A villager with glitter",
+"value": -1,
+"icon": "Wizard",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"lumberjack": {
+"id": "lumberjack",
+"name": "Lumberjack",
+"desc": "Way faster at harvesting Wood",
+"value": -1,
+"icon": "Lumberjack",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"dark_elf": {
+"id": "dark_elf",
+"name": "Dark Elf",
+"desc": "Emo version of a regular Elf",
+"value": -1,
+"icon": "DarkElf",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"ghost": {
+"id": "ghost",
+"name": "Ghost",
+"desc": "Only shows up on low quality photos",
+"value": -1,
+"icon": "Spook",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"giant_snail": {
+"id": "giant_snail",
+"name": "Giant Snail",
+"desc": "The French would go crazy for this one",
+"value": -1,
+"icon": "Snail",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"ent": {
+"id": "ent",
+"name": "Ent",
+"desc": "A talking and walking tree",
+"value": -1,
+"icon": "Ent",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"ogre": {
+"id": "ogre",
+"name": "Ogre",
+"desc": "Big and chunky",
+"value": -1,
+"icon": "Oger",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"mimic": {
+"id": "mimic",
+"name": "Mimic",
+"desc": "It almost got me",
+"value": -1,
+"icon": "Mimmic",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"feral_cat": {
+"id": "feral_cat",
+"name": "Feral Cat",
+"desc": "Does it have rabies? Probably!",
+"value": -1,
+"icon": "FeralCat",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"enchanted_shroom": {
+"id": "enchanted_shroom",
+"name": "Enchanted Shroom",
+"desc": "It's a magic shroom",
+"value": -1,
+"icon": "EnchantedMushroom",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"goblin_archer": {
+"id": "goblin_archer",
+"name": "Goblin Archer",
+"desc": "A more talented regular Goblin",
+"value": -1,
+"icon": "GoblinArcher",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"merman": {
+"id": "merman",
+"name": "Merman",
+"desc": "Half man, half mer",
+"value": -1,
+"icon": "Merman",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"elf": {
+"id": "elf",
+"name": "Elf",
+"desc": "Does not work for Santa Claus anymore",
+"value": -1,
+"icon": "Elf",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"orc_wizard": {
+"id": "orc_wizard",
+"name": "Orc Wizard",
+"desc": "Mean and green",
+"value": -1,
+"icon": "WizardOrc",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"frog_man": {
+"id": "frog_man",
+"name": "Frog Man",
+"desc": "A man made of frogs",
+"value": -1,
+"icon": "Kikker",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"goblin_shaman": {
+"id": "goblin_shaman",
+"name": "Goblin Shaman",
+"desc": "Keeps the other Goblins happy",
+"value": -1,
+"icon": "GoblinShaman",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"elf_archer": {
+"id": "elf_archer",
+"name": "Elf Archer",
+"desc": "Elves are the best archers",
+"value": -1,
+"icon": "ElfArher",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"mosquito": {
+"id": "mosquito",
+"name": "Mosquito",
+"desc": "He even hates himself",
+"value": -1,
+"icon": "Mosquito",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"amulet_of_mountain": {
+"id": "amulet_of_mountain",
+"name": "Mountain Amulet",
+"desc": "It grounds you",
+"value": 8,
+"icon": "MountainAmulet",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"helmet": {
+"id": "helmet",
+"name": "Helmet",
+"desc": "It goes on top of your head. Great for cycling",
+"value": 3,
+"icon": "Helm",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_amulet_of_forest": {
+"id": "blueprint_amulet_of_forest",
+"name": "Forest Amulet",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"gold_bar",
+"gold_bar",
+"magic_dust",
+"wood",
+"smithy"
+],
+"remove": [
+"gold_bar",
+"gold_bar",
+"magic_dust",
+"wood"
+],
+"result": "amulet_of_forest",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_amulet_of_mountain": {
+"id": "blueprint_amulet_of_mountain",
+"name": "Mountain Amulet",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"gold_bar",
+"gold_bar",
+"magic_dust",
+"stone",
+"smithy"
+],
+"remove": [
+"gold_bar",
+"gold_bar",
+"magic_dust",
+"stone"
+],
+"result": "amulet_of_mountain",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"goblin_hat": {
+"id": "goblin_hat",
+"name": "Goblin Hat",
+"desc": "Goblin fashion is outdated",
+"value": 3,
+"icon": "GoblinHat",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"dark_amulet": {
+"id": "dark_amulet",
+"name": "Dark Amulet",
+"desc": "Its dark force makes you stronger",
+"value": 3,
+"icon": "DarkAmulet",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"amulet_of_forest": {
+"id": "amulet_of_forest",
+"name": "Forest Amulet",
+"desc": "You feel the healing power of nature running through you",
+"value": 8,
+"icon": "ForestAmulet",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"rat_crown": {
+"id": "rat_crown",
+"name": "Rat Crown",
+"desc": "Turn into the King of the Rats",
+"value": 5,
+"icon": "RatKingCrown",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"horned_helmet": {
+"id": "horned_helmet",
+"name": "Horned Helmet",
+"desc": "Useful for strong headbuts",
+"value": 8,
+"icon": "HornedHelmet",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"wolf_head": {
+"id": "wolf_head",
+"name": "Wolf Head",
+"desc": "Perfect for furries",
+"value": 5,
+"icon": "Wolfhead",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"skull_helmet": {
+"id": "skull_helmet",
+"name": "Skull Helmet",
+"desc": "Kinda messed up",
+"value": 8,
+"icon": "SkullHelmet",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"bunny_hat": {
+"id": "bunny_hat",
+"name": "Rabbit Hat",
+"desc": "It's adorable!",
+"value": 3,
+"icon": "BunnyHat",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"pirate_hat": {
+"id": "pirate_hat",
+"name": "Pirate Hat",
+"desc": "Useful for dress up parties",
+"value": 5,
+"icon": "PirateHat",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"frog_helmet": {
+"id": "frog_helmet",
+"name": "Frog Helmet",
+"desc": "Grants you frog powers",
+"value": 3,
+"icon": "FrogHelmet",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"wooden_shield": {
+"id": "wooden_shield",
+"name": "Wooden Shield",
+"desc": "A basic defense against hard blows",
+"value": 3,
+"icon": "Woodenshield",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"quiver": {
+"id": "quiver",
+"name": "Quiver",
+"desc": "Makes you more efficient",
+"value": 3,
+"icon": "Quiver",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"iron_shield": {
+"id": "iron_shield",
+"name": "Iron Shield",
+"desc": "A strong defense against hard blows",
+"value": 3,
+"icon": "IronShield",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"leather_tunic": {
+"id": "leather_tunic",
+"name": "Leather Tunic",
+"desc": "Armor made from the finest leather",
+"value": 3,
+"icon": "Leathertunic",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"gold_chestplate": {
+"id": "gold_chestplate",
+"name": "Golden Chestplate",
+"desc": "Slightly overdressed for the event",
+"value": 10,
+"icon": "GoldenShestPlate",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"fire_cloak": {
+"id": "fire_cloak",
+"name": "Fire Cloak",
+"desc": "It's lit",
+"value": 8,
+"icon": "FireCloak",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_wooden_shield": {
+"id": "blueprint_wooden_shield",
+"name": "Wooden Shield",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"plank",
+"stick"
+],
+"remove": [],
+"result": "wooden_shield",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_iron_shield": {
+"id": "blueprint_iron_shield",
+"name": "Iron Shield",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"iron_bar",
+"plank",
+"smithy"
+],
+"remove": [
+"plank",
+"iron_bar"
+],
+"result": "iron_shield",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"wizard_robe": {
+"id": "wizard_robe",
+"name": "Wizard Robe",
+"desc": "It's like a magical snuggie",
+"value": 3,
+"icon": "WizardRobe",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_wizard_robe": {
+"id": "blueprint_wizard_robe",
+"name": "Wizard Robe",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"fabric",
+"rope",
+"smithy"
+],
+"remove": [
+"fabric",
+"rope"
+],
+"result": "wizard_robe",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"tiger_fur_coat": {
+"id": "tiger_fur_coat",
+"name": "Tiger Fur Coat",
+"desc": "Trashy but at least it makes you feel strong",
+"value": 5,
+"icon": "TigerFurCoat",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_gold_chestplate": {
+"id": "blueprint_gold_chestplate",
+"name": "Golden Chestplate",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"gold_bar",
+"gold_bar",
+"smithy"
+],
+"remove": [
+"gold_bar",
+"gold_bar"
+],
+"result": "gold_chestplate",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"chainmail_armor": {
+"id": "chainmail_armor",
+"name": "Chainmail Armor",
+"desc": "A medieval era classic",
+"value": 5,
+"icon": "Chainmail",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_chainmail_armor": {
+"id": "blueprint_chainmail_armor",
+"name": "Chainmail Armor",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"iron_bar",
+"iron_bar",
+"smithy"
+],
+"remove": [
+"iron_bar",
+"iron_bar"
+],
+"result": "chainmail_armor",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"crab_scale_armor": {
+"id": "crab_scale_armor",
+"name": "Crab Scale Armor",
+"desc": "The scales are impenetrable",
+"value": 5,
+"icon": "CrabArmor",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"magic_broom": {
+"id": "magic_broom",
+"name": "Magic Broom",
+"desc": "You took it from some Old Lady",
+"value": 10,
+"icon": "Broom",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"axe": {
+"id": "axe",
+"name": "Axe",
+"desc": "For chopping wood and monsters",
+"value": 3,
+"icon": "Axe",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_magic_tome": {
+"id": "blueprint_magic_tome",
+"name": "Magic Tome",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"magic_dust",
+"map",
+"smithy"
+],
+"remove": [
+"magic_dust",
+"map"
+],
+"result": "magic_tome",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_hammer": {
+"id": "blueprint_hammer",
+"name": "Hammer",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"iron_bar",
+"stick",
+"stone"
+],
+"remove": [],
+"result": "hammer",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"throwing_star": {
+"id": "throwing_star",
+"name": "Throwing Stars",
+"desc": "Fast and accurate, ninjas love them",
+"value": 5,
+"icon": "Trowingstars",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"bow": {
+"id": "bow",
+"name": "Bow",
+"desc": "Makes you feel like Robin Hood",
+"value": 3,
+"icon": "Bow",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"pirate_sword": {
+"id": "pirate_sword",
+"name": "Pirate Sabre",
+"desc": "Designed for swashbucklers",
+"value": 5,
+"icon": "PirateSabre",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_bow": {
+"id": "blueprint_bow",
+"name": "Bow",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"rope",
+"plank",
+"wood"
+],
+"remove": [],
+"result": "bow",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"magic_tome": {
+"id": "magic_tome",
+"name": "Magic Tome",
+"desc": "An old book with spells in it",
+"value": 3,
+"icon": "MagicTome",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_slingshot": {
+"id": "blueprint_slingshot",
+"name": "Slingshot",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"stick",
+"stick",
+"stone"
+],
+"remove": [],
+"result": "slingshot",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_axe": {
+"id": "blueprint_axe",
+"name": "Axe",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"iron_bar",
+"stick",
+"wood"
+],
+"remove": [],
+"result": "axe",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_spiked_plank": {
+"id": "blueprint_spiked_plank",
+"name": "Spiked Plank",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"plank",
+"flint"
+],
+"remove": [],
+"result": "spiked_plank",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_magic_blade": {
+"id": "blueprint_magic_blade",
+"name": "Magic Blade",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"magic_dust",
+"magic_dust",
+"sword",
+"smithy"
+],
+"remove": [
+"magic_dust",
+"magic_dust",
+"sword"
+],
+"result": "magic_blade",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"crossbow": {
+"id": "crossbow",
+"name": "Crossbow",
+"desc": "A gun for arrows",
+"value": 5,
+"icon": "Crossbow",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_magic_ring": {
+"id": "blueprint_magic_ring",
+"name": "Magic Ring",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"magic_dust",
+"gold",
+"smithy",
+"gold"
+],
+"remove": [
+"magic_dust",
+"gold",
+"gold"
+],
+"result": "magic_ring",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_throwing_star": {
+"id": "blueprint_throwing_star",
+"name": "Throwing Stars",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"iron_bar",
+"iron_bar",
+"iron_bar",
+"smithy"
+],
+"remove": [
+"iron_bar",
+"iron_bar",
+"iron_bar"
+],
+"result": "throwing_star",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_bone_spear": {
+"id": "blueprint_bone_spear",
+"name": "Bone Spear",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"spear",
+"bone",
+"bone"
+],
+"remove": [],
+"result": "bone_spear",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"club": {
+"id": "club",
+"name": "Club",
+"desc": "Not used for playing baseball",
+"value": 3,
+"icon": "Club",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_magic_wand": {
+"id": "blueprint_magic_wand",
+"name": "Magic Wand",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"magic_dust",
+"stick"
+],
+"remove": [],
+"result": "magic_wand",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_boomerang": {
+"id": "blueprint_boomerang",
+"name": "Boomerang",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"plank",
+"plank",
+"plank",
+"smithy"
+],
+"remove": [
+"plank",
+"plank",
+"plank"
+],
+"result": "boomerang",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_blunderbuss": {
+"id": "blueprint_blunderbuss",
+"name": "Blunderbuss",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"gold_bar",
+"iron_bar",
+"plank",
+"flint",
+"smithy"
+],
+"remove": [
+"gold_bar",
+"iron_bar",
+"plank",
+"flint"
+],
+"result": "blunderbuss",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_magic_staff": {
+"id": "blueprint_magic_staff",
+"name": "Magic Staff",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"magic_dust",
+"wood",
+"smithy"
+],
+"remove": [
+"magic_dust",
+"wood"
+],
+"result": "magic_staff",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"magic_staff": {
+"id": "magic_staff",
+"name": "Magic Staff",
+"desc": "A long, enchanted rod",
+"value": 5,
+"icon": "MagicStaff",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"staff_of_fear": {
+"id": "staff_of_fear",
+"name": "Staff of Fear",
+"desc": "Very scary!!",
+"value": 8,
+"icon": "StaffOfFear",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"spiked_plank": {
+"id": "spiked_plank",
+"name": "Spiked Plank",
+"desc": "For tough construction workers",
+"value": 4,
+"icon": "SpikedPlank",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blunderbuss": {
+"id": "blunderbuss",
+"name": "Blunderbuss",
+"desc": "Watch out! Could blow up in your own face",
+"value": 6,
+"icon": "Blunderbuss",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"morning_star": {
+"id": "morning_star",
+"name": "Morning Star",
+"desc": "Spikes on a stick",
+"value": 4,
+"icon": "MorningStar",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"magic_wand": {
+"id": "magic_wand",
+"name": "Magic Wand",
+"desc": "A simple magic weapon",
+"value": 3,
+"icon": "Wand",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"bone_spear": {
+"id": "bone_spear",
+"name": "Bone Spear",
+"desc": "Intimidating version of a regular Spear",
+"value": 5,
+"icon": "BoneSpear",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"slingshot": {
+"id": "slingshot",
+"name": "Slingshot",
+"desc": "Very inaccurately hurl rocks at enemies",
+"value": 5,
+"icon": "Slingshot",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"hammer": {
+"id": "hammer",
+"name": "Hammer",
+"desc": "Slow and blunt but packs a punch",
+"value": 3,
+"icon": "Hammer",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_broken_bottle": {
+"id": "blueprint_broken_bottle",
+"name": "Broken Bottle",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"empty_bottle",
+"stone"
+],
+"remove": [],
+"result": "broken_bottle",
+"extra": [],
+"time": 0.5
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"boomerang": {
+"id": "boomerang",
+"name": "Boomerang",
+"desc": "Always comes back to you",
+"value": 3,
+"icon": "Boomerang",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_pickaxe": {
+"id": "blueprint_pickaxe",
+"name": "Pickaxe",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"iron_bar",
+"stick",
+"flint"
+],
+"remove": [],
+"result": "pickaxe",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_crossbow": {
+"id": "blueprint_crossbow",
+"name": "Crossbow",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"rope",
+"plank",
+"wood",
+"iron_bar",
+"smithy"
+],
+"remove": [
+"rope",
+"plank",
+"wood",
+"iron_bar"
+],
+"result": "crossbow",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_bone_staff": {
+"id": "blueprint_bone_staff",
+"name": "Bone Staff",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"magic_staff",
+"bone",
+"gold_bar",
+"smithy"
+],
+"remove": [
+"magic_staff",
+"bone",
+"gold_bar"
+],
+"result": "bone_staff",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"bone_staff": {
+"id": "bone_staff",
+"name": "Bone Staff",
+"desc": "A bone with special abilities",
+"value": 3,
+"icon": "BoneStaff",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"bear_claw": {
+"id": "bear_claw",
+"name": "Bear Claw",
+"desc": "Cheap Wolverine knockoff",
+"value": 5,
+"icon": "BearClaw",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"kraken_tooth_axe": {
+"id": "kraken_tooth_axe",
+"name": "Kraken Tooth Axe",
+"desc": "Left for the tooth fairy, you took it instead",
+"value": 8,
+"icon": "KrakenToothAxe",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"magic_blade": {
+"id": "magic_blade",
+"name": "Magic Blade",
+"desc": "An ordinary sword that glitters",
+"value": 5,
+"icon": "MagicSword",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"broken_bottle": {
+"id": "broken_bottle",
+"name": "Broken Bottle",
+"desc": "Cut out for the job",
+"value": 1,
+"icon": "BrokenBottle",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"pickaxe": {
+"id": "pickaxe",
+"name": "Pickaxe",
+"desc": "A stick with two pointy ends",
+"value": 3,
+"icon": "Pikaxe",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"demon_sword": {
+"id": "demon_sword",
+"name": "Demon Sword",
+"desc": "An excellent blade used by the Demon himself",
+"value": 10,
+"icon": "DemonSword",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"magic_ring": {
+"id": "magic_ring",
+"name": "Magic Ring",
+"desc": "Once it slides on your finger it grants you magic powers",
+"value": 3,
+"icon": "MagicRing",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blowpipe": {
+"id": "blowpipe",
+"name": "Blowpipe",
+"desc": "Blow as hard as you can",
+"value": 3,
+"icon": "Blowpipe",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_club": {
+"id": "blueprint_club",
+"name": "Club",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"wood",
+"wood",
+"stick"
+],
+"remove": [],
+"result": "club",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"milk": {
+"id": "milk",
+"name": "Milk",
+"desc": "Fresh from the Cow",
+"value": 1,
+"icon": "Milk",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"berrybush": {
+"id": "berrybush",
+"name": "Berry Bush",
+"desc": "A bush with delicious berries in it",
+"value": 1,
+"icon": "Bush",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "berry",
+"chance": 100
+},
+{
+"card": "rabbit",
+"chance": 1
+}
+],
+"bagCount": 3,
+"special": null,
+"harvesttime": 10,
+"amount": 3,
+"requiredvillagercount": 1
+},
+"blueprint_offspring": {
+"id": "blueprint_offspring",
+"name": "Offspring",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"house",
+"breedable_villager",
+"breedable_villager"
+],
+"remove": [],
+"result": "kid",
+"extra": [],
+"time": 20
+},
+{
+"req": [
+"house",
+"dog",
+"dog"
+],
+"remove": [],
+"result": "puppy",
+"extra": [],
+"time": 60
+},
+{
+"req": [
+"house",
+"cat",
+"cat"
+],
+"remove": [],
+"result": "kitten",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"key": {
+"id": "key",
+"name": "Key",
+"desc": "I wonder what it's for..",
+"value": 3,
+"icon": "Key",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"graveyard": {
+"id": "graveyard",
+"name": "Graveyard",
+"desc": "Very different from a normal yard",
+"value": 5,
+"icon": "Graveyard",
+"behavior": "location",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "bone",
+"chance": 1
+},
+{
+"card": "soil",
+"chance": 2
+},
+{
+"card": "skeleton",
+"chance": 1
+},
+{
+"card": "treasure_chest",
+"chance": 2
+},
+{
+"card": "corpse",
+"chance": 1
+},
+{
+"card": "catacombs",
+"chance": 1
+}
+],
+"bagCount": 3,
+"special": null,
+"harvesttime": 60,
+"amount": 3,
+"isunlimited": 1,
+"requiredvillagercount": 1
+},
+"brickyard": {
+"id": "brickyard",
+"name": "Brickyard",
+"desc": "Quickly turns Stone into Bricks",
+"value": 5,
+"icon": "Brickyard",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"bag": true
+}
+},
+"potato": {
+"id": "potato",
+"name": "Potato",
+"desc": "Smooth and starchy, but should be cooked first",
+"value": 2,
+"icon": "Potato",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"display_2000_dlc": {
+"id": "display_2000_dlc",
+"name": "Stacklands 2000",
+"desc": "Buy the Stacklands 2000 DLC to get access to these cards",
+"value": -1,
+"icon": "factory_parts",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"magic_dust": {
+"id": "magic_dust",
+"name": "Magic Dust",
+"desc": "It looks like glitter",
+"value": 3,
+"icon": "MagicDust",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_growth": {
+"id": "blueprint_growth",
+"name": "Growth",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"berry",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"berrybush"
+],
+"time": 120
+},
+{
+"req": [
+"berry",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"berrybush"
+],
+"time": 120
+},
+{
+"req": [
+"berry",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"berrybush"
+],
+"time": 90
+},
+{
+"req": [
+"berry",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"berrybush"
+],
+"time": 60
+},
+{
+"req": [
+"berry",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"berrybush"
+],
+"time": 60
+},
+{
+"req": [
+"apple",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"apple_tree"
+],
+"time": 120
+},
+{
+"req": [
+"apple",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"apple_tree"
+],
+"time": 120
+},
+{
+"req": [
+"apple",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"apple_tree"
+],
+"time": 90
+},
+{
+"req": [
+"apple",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"apple_tree"
+],
+"time": 60
+},
+{
+"req": [
+"apple",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"apple_tree"
+],
+"time": 60
+},
+{
+"req": [
+"carrot",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"carrot",
+"carrot"
+],
+"time": 180
+},
+{
+"req": [
+"carrot",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"carrot",
+"carrot"
+],
+"time": 180
+},
+{
+"req": [
+"carrot",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"carrot",
+"carrot"
+],
+"time": 135
+},
+{
+"req": [
+"carrot",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"carrot",
+"carrot"
+],
+"time": 90
+},
+{
+"req": [
+"carrot",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"carrot",
+"carrot"
+],
+"time": 90
+},
+{
+"req": [
+"onion",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"onion",
+"onion"
+],
+"time": 120
+},
+{
+"req": [
+"onion",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"onion",
+"onion"
+],
+"time": 120
+},
+{
+"req": [
+"onion",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"onion",
+"onion"
+],
+"time": 90
+},
+{
+"req": [
+"onion",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"onion",
+"onion"
+],
+"time": 60
+},
+{
+"req": [
+"onion",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"onion",
+"onion"
+],
+"time": 60
+},
+{
+"req": [
+"potato",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"potato",
+"potato"
+],
+"time": 120
+},
+{
+"req": [
+"potato",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"potato",
+"potato"
+],
+"time": 120
+},
+{
+"req": [
+"potato",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"potato",
+"potato"
+],
+"time": 90
+},
+{
+"req": [
+"potato",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"potato",
+"potato"
+],
+"time": 60
+},
+{
+"req": [
+"potato",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"potato",
+"potato"
+],
+"time": 60
+},
+{
+"req": [
+"mushroom",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"mushroom",
+"mushroom"
+],
+"time": 120
+},
+{
+"req": [
+"mushroom",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"mushroom",
+"mushroom"
+],
+"time": 120
+},
+{
+"req": [
+"mushroom",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"mushroom",
+"mushroom"
+],
+"time": 90
+},
+{
+"req": [
+"mushroom",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"mushroom",
+"mushroom"
+],
+"time": 60
+},
+{
+"req": [
+"mushroom",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"mushroom",
+"mushroom"
+],
+"time": 60
+},
+{
+"req": [
+"banana",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"banana_tree"
+],
+"time": 120
+},
+{
+"req": [
+"banana",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"banana_tree"
+],
+"time": 120
+},
+{
+"req": [
+"banana",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"banana_tree"
+],
+"time": 90
+},
+{
+"req": [
+"banana",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"banana_tree"
+],
+"time": 60
+},
+{
+"req": [
+"banana",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"banana_tree"
+],
+"time": 60
+},
+{
+"req": [
+"cotton",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"cotton_plant"
+],
+"time": 120
+},
+{
+"req": [
+"cotton",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"cotton_plant"
+],
+"time": 120
+},
+{
+"req": [
+"cotton",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"cotton_plant"
+],
+"time": 90
+},
+{
+"req": [
+"cotton",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"cotton_plant"
+],
+"time": 60
+},
+{
+"req": [
+"cotton",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"cotton_plant"
+],
+"time": 60
+},
+{
+"req": [
+"lime",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"lime",
+"lime"
+],
+"time": 180
+},
+{
+"req": [
+"lime",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"lime",
+"lime"
+],
+"time": 180
+},
+{
+"req": [
+"lime",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"lime",
+"lime"
+],
+"time": 135
+},
+{
+"req": [
+"lime",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"lime",
+"lime"
+],
+"time": 90
+},
+{
+"req": [
+"lime",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"lime",
+"lime"
+],
+"time": 90
+},
+{
+"req": [
+"chili_pepper",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"chili_pepper",
+"chili_pepper"
+],
+"time": 120
+},
+{
+"req": [
+"chili_pepper",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"chili_pepper",
+"chili_pepper"
+],
+"time": 120
+},
+{
+"req": [
+"chili_pepper",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"chili_pepper",
+"chili_pepper"
+],
+"time": 90
+},
+{
+"req": [
+"chili_pepper",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"chili_pepper",
+"chili_pepper"
+],
+"time": 60
+},
+{
+"req": [
+"chili_pepper",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"chili_pepper",
+"chili_pepper"
+],
+"time": 60
+},
+{
+"req": [
+"seaweed",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"seaweed",
+"seaweed"
+],
+"time": 120
+},
+{
+"req": [
+"seaweed",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"seaweed",
+"seaweed"
+],
+"time": 120
+},
+{
+"req": [
+"seaweed",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"seaweed",
+"seaweed"
+],
+"time": 90
+},
+{
+"req": [
+"seaweed",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"seaweed",
+"seaweed"
+],
+"time": 60
+},
+{
+"req": [
+"seaweed",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"seaweed",
+"seaweed"
+],
+"time": 60
+},
+{
+"req": [
+"sugar",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"sugar_cane"
+],
+"time": 120
+},
+{
+"req": [
+"sugar",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"sugar_cane"
+],
+"time": 120
+},
+{
+"req": [
+"sugar",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"sugar_cane"
+],
+"time": 90
+},
+{
+"req": [
+"sugar",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"sugar_cane"
+],
+"time": 60
+},
+{
+"req": [
+"sugar",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"sugar_cane"
+],
+"time": 60
+},
+{
+"req": [
+"wheat",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"wheat",
+"wheat",
+"wheat"
+],
+"time": 120
+},
+{
+"req": [
+"wheat",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"wheat",
+"wheat",
+"wheat"
+],
+"time": 120
+},
+{
+"req": [
+"wheat",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"wheat",
+"wheat",
+"wheat"
+],
+"time": 90
+},
+{
+"req": [
+"wheat",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"wheat",
+"wheat",
+"wheat"
+],
+"time": 60
+},
+{
+"req": [
+"wheat",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"wheat",
+"wheat",
+"wheat"
+],
+"time": 60
+},
+{
+"req": [
+"grape",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"grape_vine"
+],
+"time": 120
+},
+{
+"req": [
+"grape",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"grape_vine"
+],
+"time": 120
+},
+{
+"req": [
+"grape",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"grape_vine"
+],
+"time": 90
+},
+{
+"req": [
+"grape",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"grape_vine"
+],
+"time": 60
+},
+{
+"req": [
+"grape",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"grape_vine"
+],
+"time": 60
+},
+{
+"req": [
+"olive",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"olive_tree"
+],
+"time": 120
+},
+{
+"req": [
+"olive",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"olive_tree"
+],
+"time": 120
+},
+{
+"req": [
+"olive",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"olive_tree"
+],
+"time": 90
+},
+{
+"req": [
+"olive",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"olive_tree"
+],
+"time": 60
+},
+{
+"req": [
+"olive",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"olive_tree"
+],
+"time": 60
+},
+{
+"req": [
+"tomato",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"tomato_plant"
+],
+"time": 120
+},
+{
+"req": [
+"tomato",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"tomato_plant"
+],
+"time": 120
+},
+{
+"req": [
+"tomato",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"tomato_plant"
+],
+"time": 90
+},
+{
+"req": [
+"tomato",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"tomato_plant"
+],
+"time": 60
+},
+{
+"req": [
+"tomato",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"tomato_plant"
+],
+"time": 60
+},
+{
+"req": [
+"stick",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"tree"
+],
+"time": 120
+},
+{
+"req": [
+"stick",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"tree"
+],
+"time": 120
+},
+{
+"req": [
+"stick",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"tree"
+],
+"time": 90
+},
+{
+"req": [
+"stick",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"tree"
+],
+"time": 60
+},
+{
+"req": [
+"stick",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"tree"
+],
+"time": 60
+},
+{
+"req": [
+"herbs",
+"soil"
+],
+"remove": [],
+"result": null,
+"extra": [
+"herbs",
+"herbs"
+],
+"time": 120
+},
+{
+"req": [
+"herbs",
+"poop"
+],
+"remove": [],
+"result": null,
+"extra": [
+"herbs",
+"herbs"
+],
+"time": 120
+},
+{
+"req": [
+"herbs",
+"garden"
+],
+"remove": [],
+"result": null,
+"extra": [
+"herbs",
+"herbs"
+],
+"time": 90
+},
+{
+"req": [
+"herbs",
+"farm"
+],
+"remove": [],
+"result": null,
+"extra": [
+"herbs",
+"herbs"
+],
+"time": 60
+},
+{
+"req": [
+"herbs",
+"greenhouse"
+],
+"remove": [],
+"result": null,
+"extra": [
+"herbs",
+"herbs"
+],
+"time": 60
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"rock": {
+"id": "rock",
+"name": "Rock",
+"desc": "It looks sturdy, yet punchable",
+"value": 0,
+"icon": "Rock",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "stone",
+"chance": 7
+},
+{
+"card": "gold",
+"chance": 1
+},
+{
+"card": "flint",
+"chance": 2
+}
+],
+"bagCount": 3,
+"special": null,
+"harvesttime": 10,
+"amount": 2,
+"requiredvillagercount": 1
+},
+"strange_portal": {
+"id": "strange_portal",
+"name": "Strange Portal",
+"desc": "It looks threatening. I wonder if we can enter it?",
+"value": -1,
+"icon": "Portal",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"animal_pen": {
+"id": "animal_pen",
+"name": "Animal Pen",
+"desc": "Can hold 5 Animals",
+"value": 3,
+"icon": "AnimalPen",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"feed": "wheat",
+"time": 90
+}
+},
+"farm": {
+"id": "farm",
+"name": "Farm",
+"desc": "An advanced building for growing Food",
+"value": 5,
+"icon": "Farm",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_lumbercamp": {
+"id": "blueprint_lumbercamp",
+"name": "Lumber Camp",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"wood",
+"wood",
+"wood",
+"stone",
+"any_villager"
+],
+"remove": [],
+"result": "lumbercamp",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"catacombs": {
+"id": "catacombs",
+"name": "Catacombs",
+"desc": "Rumored to contain a mysterious object",
+"value": 5,
+"icon": "Catacomben",
+"behavior": "location",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "treasure_chest",
+"chance": 1
+}
+],
+"bagCount": 5,
+"special": null,
+"harvesttime": 60,
+"amount": 5,
+"requiredvillagercount": 1
+},
+"soil": {
+"id": "soil",
+"name": "Soil",
+"desc": "A simple and slow way of growing Food",
+"value": 3,
+"icon": "Soil",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_fruitsalad": {
+"id": "blueprint_fruitsalad",
+"name": "Fruit Salad",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"apple",
+"berry"
+],
+"remove": [],
+"result": "fruit_salad",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"house": {
+"id": "house",
+"name": "House",
+"desc": "A nice place to live",
+"value": 3,
+"icon": "House",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"breed": true
+}
+},
+"blueprint_ironweapons": {
+"id": "blueprint_ironweapons",
+"name": "Sword",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"iron_bar",
+"stick",
+"stick"
+],
+"remove": [],
+"result": "sword",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"frittata": {
+"id": "frittata",
+"name": "Frittata",
+"desc": "Delicious! Eat it with a fork",
+"value": 3,
+"icon": "Fritatta",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"ideas_base": {
+"id": "ideas_base",
+"name": "ideas_base",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "other",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"corpse",
+"corpse"
+],
+"remove": [],
+"result": "graveyard",
+"extra": [],
+"time": 15
+},
+{
+"req": [
+"corpse",
+"graveyard"
+],
+"remove": [
+"corpse"
+],
+"result": null,
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"iron_bar": {
+"id": "iron_bar",
+"name": "Iron Bar",
+"desc": "A shiny, valuable material",
+"value": 5,
+"icon": "Iron bar",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"card_display_spirit_dlc": {
+"id": "card_display_spirit_dlc",
+"name": "Cursed Worlds",
+"desc": "Buy the Cursed Worlds DLC to get access to these cards",
+"value": -1,
+"icon": "death_curse",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_stew": {
+"id": "blueprint_stew",
+"name": "Stew",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"campfire",
+"potato",
+"raw_meat|cooked_meat",
+"onion",
+"carrot"
+],
+"remove": [],
+"result": null,
+"extra": [
+"stew"
+],
+"time": 120
+},
+{
+"req": [
+"stove",
+"potato",
+"raw_meat|cooked_meat",
+"onion",
+"carrot"
+],
+"remove": [],
+"result": null,
+"extra": [
+"stew"
+],
+"time": 36
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"smithy": {
+"id": "smithy",
+"name": "Smithy",
+"desc": "A building used for creating better weapons",
+"value": 3,
+"icon": "Smithy",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"bag": true
+}
+},
+"blueprint_cookedmeat": {
+"id": "blueprint_cookedmeat",
+"name": "Cooked Meat",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"campfire",
+"raw_meat"
+],
+"remove": [],
+"result": null,
+"extra": [
+"cooked_meat"
+],
+"time": 60
+},
+{
+"req": [
+"stove",
+"raw_meat"
+],
+"remove": [],
+"result": null,
+"extra": [
+"cooked_meat"
+],
+"time": 18
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"goblet": {
+"id": "goblet",
+"name": "Golden Goblet",
+"desc": "A mysterious object",
+"value": -1,
+"icon": "GoldenGoblet",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"forest": {
+"id": "forest",
+"name": "Forest",
+"desc": "A quaint place that also contains monsters",
+"value": 5,
+"icon": "Forest",
+"behavior": "location",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "berrybush",
+"chance": 4
+},
+{
+"card": "apple",
+"chance": 2
+},
+{
+"card": "tree",
+"chance": 4
+},
+{
+"card": "stick",
+"chance": 6
+},
+{
+"card": "rabbit",
+"chance": 4
+},
+{
+"card": "mushroom",
+"chance": 4
+},
+{
+"card": "catacombs",
+"chance": 3
+},
+{
+"card": "treasure_chest",
+"chance": 2
+},
+{
+"card": "apple_tree",
+"chance": 2
+},
+{
+"card": "blueprint_amulet_of_forest",
+"chance": 5
+}
+],
+"bagCount": 3,
+"special": null,
+"harvesttime": 60,
+"amount": 3,
+"isunlimited": 1,
+"requiredvillagercount": 1
+},
+"rumor_dark_forest": {
+"id": "rumor_dark_forest",
+"name": "Dark Forest",
+"desc": "There's a hidden world behind the Strange Portal",
+"value": 1,
+"icon": "Rumor",
+"behavior": "rumor",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"cooked_meat": {
+"id": "cooked_meat",
+"name": "Cooked Meat",
+"desc": "It's cooked medium rare",
+"value": 3,
+"icon": "Cooked-Meat",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_temple": {
+"id": "blueprint_temple",
+"name": "Temple",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"plank",
+"plank",
+"plank",
+"plank",
+"plank",
+"brick",
+"brick",
+"brick",
+"brick",
+"brick",
+"iron_bar",
+"iron_bar",
+"any_villager",
+"any_villager",
+"any_villager",
+"iron_bar"
+],
+"remove": [],
+"result": "temple",
+"extra": [],
+"time": 180
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_market": {
+"id": "blueprint_market",
+"name": "Market",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"brick",
+"plank",
+"gold",
+"gold",
+"gold",
+"any_villager"
+],
+"remove": [],
+"result": "market",
+"extra": [],
+"time": 30
+},
+{
+"req": [
+"brick",
+"plank",
+"shell",
+"shell",
+"shell",
+"any_villager"
+],
+"remove": [],
+"result": "market",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"rabbit": {
+"id": "rabbit",
+"name": "Rabbit",
+"desc": "Fluffy poop machine",
+"value": -1,
+"icon": "Rabbit",
+"behavior": "animal",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_iron_bar": {
+"id": "blueprint_iron_bar",
+"name": "Iron Bar",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"smelter",
+"wood",
+"iron_ore"
+],
+"remove": [],
+"result": "iron_bar",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"mountain": {
+"id": "mountain",
+"name": "Mountain",
+"desc": "A hill with a pointy edge",
+"value": 5,
+"icon": "Mountains",
+"behavior": "location",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "rock",
+"chance": 4
+},
+{
+"card": "iron_deposit",
+"chance": 8
+},
+{
+"card": "bear",
+"chance": 5
+},
+{
+"card": "blueprint_smelting",
+"chance": 14
+},
+{
+"card": "treasure_chest",
+"chance": 1
+},
+{
+"card": "catacombs",
+"chance": 1
+},
+{
+"card": "blueprint_amulet_of_mountain",
+"chance": 6
+}
+],
+"bagCount": 3,
+"special": null,
+"harvesttime": 60,
+"amount": 3,
+"isunlimited": 1,
+"requiredvillagercount": 1
+},
+"mine": {
+"id": "mine",
+"name": "Iron Mine",
+"desc": "An unlimited resource of Iron Ore",
+"value": 5,
+"icon": "Mine",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "iron_ore",
+"chance": 4
+},
+{
+"card": "stone",
+"chance": 1
+},
+{
+"card": "gold",
+"chance": 1
+}
+],
+"bagCount": 3,
+"special": {
+"bag": true
+},
+"harvesttime": 45,
+"amount": 3,
+"isunlimited": 1
+},
+"blueprint_shed": {
+"id": "blueprint_shed",
+"name": "Shed",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"wood",
+"stone",
+"stick",
+"any_villager"
+],
+"remove": [],
+"result": "shed",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"tree": {
+"id": "tree",
+"name": "Tree",
+"desc": "Made of Wood and Sticks",
+"value": 0,
+"icon": "Tree",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "wood",
+"chance": 5
+},
+{
+"card": "apple",
+"chance": 1
+},
+{
+"card": "stick",
+"chance": 2
+}
+],
+"bagCount": 3,
+"special": null,
+"harvesttime": 10,
+"amount": 2,
+"requiredvillagercount": 1
+},
+"blueprint_sawmill": {
+"id": "blueprint_sawmill",
+"name": "Sawmill",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"plank",
+"stone",
+"iron_bar",
+"any_villager"
+],
+"remove": [],
+"result": "sawmill",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"smelter": {
+"id": "smelter",
+"name": "Smelter",
+"desc": "Processes various materials by smelting them",
+"value": 5,
+"icon": "Smelter",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_campfire": {
+"id": "blueprint_campfire",
+"name": "Campfire",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"stick",
+"flint"
+],
+"remove": [],
+"result": "campfire",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"treasure_chest": {
+"id": "treasure_chest",
+"name": "Treasure Chest",
+"desc": "It's locked",
+"value": 3,
+"icon": "Treasure-Chest",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"amount": 3
+},
+"milkshake": {
+"id": "milkshake",
+"name": "Milkshake",
+"desc": "It's Berry flavoured",
+"value": 5,
+"icon": "Milkshake",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_coinchest": {
+"id": "blueprint_coinchest",
+"name": "Coin Chest",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"gold",
+"wood",
+"wood"
+],
+"remove": [],
+"result": "coin_chest",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_stove": {
+"id": "blueprint_stove",
+"name": "Stove",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"brick",
+"iron_bar",
+"flint",
+"any_villager"
+],
+"remove": [],
+"result": "stove",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"rare_portal": {
+"id": "rare_portal",
+"name": "Rare Portal",
+"desc": "It looks threatening. I wonder if we can enter it?",
+"value": -1,
+"icon": "StrongPortal",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"market": {
+"id": "market",
+"name": "Market",
+"desc": "Can be used to sell Cards for more than usual",
+"value": 5,
+"icon": "Market",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"time": 30
+}
+},
+"sawmill": {
+"id": "sawmill",
+"name": "Sawmill",
+"desc": "Quickly turns Wood into Planks",
+"value": 5,
+"icon": "Sawmill",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"accept": [
+"wood"
+],
+"need": 2,
+"time": 10,
+"result": "plank"
+}
+},
+"flint": {
+"id": "flint",
+"name": "Flint",
+"desc": "Used to start fires",
+"value": 2,
+"icon": "Flint",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"old_village": {
+"id": "old_village",
+"name": "Old Village",
+"desc": "A person is rumored to still live here..",
+"value": 5,
+"icon": "Old-Village",
+"behavior": "location",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "gold",
+"chance": 4
+},
+{
+"card": "villager",
+"chance": 2
+},
+{
+"card": "wood",
+"chance": 4
+},
+{
+"card": "corpse",
+"chance": 2
+},
+{
+"card": "iron_bar",
+"chance": 2
+},
+{
+"card": "catacombs",
+"chance": 1
+},
+{
+"card": "slime",
+"chance": 2
+},
+{
+"card": "treasure_chest",
+"chance": 2
+},
+{
+"card": "old_tome",
+"chance": 1
+},
+{
+"card": "milk",
+"chance": 2
+}
+],
+"bagCount": 3,
+"special": null,
+"harvesttime": 60,
+"amount": 3,
+"isunlimited": 1,
+"requiredvillagercount": 1
+},
+"campfire": {
+"id": "campfire",
+"name": "Campfire",
+"desc": "Can be used to cook foods - it looks warm & cozy",
+"value": 1,
+"icon": "Campfire",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_quarry": {
+"id": "blueprint_quarry",
+"name": "Quarry",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"stone",
+"stone",
+"stone",
+"wood",
+"any_villager"
+],
+"remove": [],
+"result": "quarry",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_woodenweapons": {
+"id": "blueprint_woodenweapons",
+"name": "Spear",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"wood",
+"stick",
+"stick"
+],
+"remove": [],
+"result": "spear",
+"extra": [],
+"time": 15
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"stone": {
+"id": "stone",
+"name": "Stone",
+"desc": "A simple resource",
+"value": 1,
+"icon": "Stone",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_omelette": {
+"id": "blueprint_omelette",
+"name": "Omelette",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"campfire",
+"egg",
+"egg"
+],
+"remove": [],
+"result": null,
+"extra": [
+"omelette"
+],
+"time": 90
+},
+{
+"req": [
+"stove",
+"egg",
+"egg"
+],
+"remove": [],
+"result": null,
+"extra": [
+"omelette"
+],
+"time": 27.000002
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"coin_chest": {
+"id": "coin_chest",
+"name": "Coin Chest",
+"desc": "A chest that can hold Coins",
+"value": 3,
+"icon": "Coin-Chest",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_carving": {
+"id": "blueprint_carving",
+"name": "Stick",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"wood",
+"any_villager"
+],
+"remove": [],
+"result": "stick",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_filtered_crossroad": {
+"id": "blueprint_filtered_crossroad",
+"name": "Filter Crossroads",
+"desc": "Drag a Card on top to set the Filter. It will output the filtered card to the top road connection, and any others to the bottom",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"brick",
+"brick",
+"flint",
+"any_villager"
+],
+"remove": [],
+"result": "filtered_crossroad",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"iron_ore": {
+"id": "iron_ore",
+"name": "Iron Ore",
+"desc": "Can be turned into Iron Bars",
+"value": 3,
+"icon": "Iron Ore",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"garden": {
+"id": "garden",
+"name": "Garden",
+"desc": "A simple building for growing Food",
+"value": 3,
+"icon": "Garden",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_farm": {
+"id": "blueprint_farm",
+"name": "Farm",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"soil|garden",
+"brick",
+"brick",
+"plank",
+"plank",
+"any_villager"
+],
+"remove": [
+"soil|garden",
+"brick",
+"brick",
+"plank",
+"plank"
+],
+"result": "farm",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"stove": {
+"id": "stove",
+"name": "Stove",
+"desc": "Cooks faster than a Campfire",
+"value": 5,
+"icon": "Stove",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"iron_deposit": {
+"id": "iron_deposit",
+"name": "Iron Deposit",
+"desc": "Contains Iron Ore",
+"value": 0,
+"icon": "IronDeposit",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "iron_ore",
+"chance": 5
+},
+{
+"card": "stone",
+"chance": 1
+},
+{
+"card": "gold",
+"chance": 1
+}
+],
+"bagCount": 3,
+"special": null,
+"harvesttime": 10,
+"amount": 3,
+"requiredvillagercount": 1
+},
+"shed": {
+"id": "shed",
+"name": "Shed",
+"desc": "Increases your Card Cap by 4",
+"value": 3,
+"icon": "Shed",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"plains": {
+"id": "plains",
+"name": "Plains",
+"desc": "The great outdoors",
+"value": 5,
+"icon": "Plains",
+"behavior": "location",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "chicken",
+"chance": 2
+},
+{
+"card": "mushroom",
+"chance": 1
+},
+{
+"card": "wolf",
+"chance": 1
+},
+{
+"card": "soil",
+"chance": 2
+},
+{
+"card": "rat",
+"chance": 2
+},
+{
+"card": "cow",
+"chance": 2
+},
+{
+"card": "onion",
+"chance": 2
+},
+{
+"card": "carrot",
+"chance": 1
+},
+{
+"card": "milk",
+"chance": 1
+}
+],
+"bagCount": 3,
+"special": null,
+"harvesttime": 60,
+"amount": 3,
+"isunlimited": 1,
+"requiredvillagercount": 1
+},
+"blueprint_brick": {
+"id": "blueprint_brick",
+"name": "Brick",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"stone",
+"stone",
+"stone",
+"any_villager"
+],
+"remove": [],
+"result": "brick",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"apple_tree": {
+"id": "apple_tree",
+"name": "Apple Tree",
+"desc": "A tree.. with apples in it",
+"value": 0,
+"icon": "Apple-Tree",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "apple",
+"chance": 9
+},
+{
+"card": "stick",
+"chance": 1
+}
+],
+"bagCount": 2,
+"special": null,
+"harvesttime": 10,
+"amount": 3,
+"requiredvillagercount": 1
+},
+"poop": {
+"id": "poop",
+"name": "Poop",
+"desc": "It looks stinky",
+"value": 1,
+"icon": "Poop",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_mine": {
+"id": "blueprint_mine",
+"name": "Iron Mine",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"flint",
+"flint",
+"wood",
+"stone",
+"any_villager"
+],
+"remove": [],
+"result": "mine",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"chicken": {
+"id": "chicken",
+"name": "Chicken",
+"desc": "Alleged descendent of dinosaurs. I don't see it",
+"value": -1,
+"icon": "Chicken",
+"behavior": "animal",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"omelette": {
+"id": "omelette",
+"name": "Omelette",
+"desc": "P\u00e9pin would be proud",
+"value": 5,
+"icon": "Omelette",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_house": {
+"id": "blueprint_house",
+"name": "House",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"wood",
+"wood",
+"stone",
+"any_villager"
+],
+"remove": [],
+"result": "house",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"plank": {
+"id": "plank",
+"name": "Plank",
+"desc": "A strong building material",
+"value": 3,
+"icon": "Plank",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"kid": {
+"id": "kid",
+"name": "Baby",
+"desc": "A young'un. Needs a House to grow up in.",
+"value": -1,
+"icon": "Baby",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"fruit_salad": {
+"id": "fruit_salad",
+"name": "Fruit Salad",
+"desc": "A classic ancient food",
+"value": 5,
+"icon": "Fruit-Salad",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"wood": {
+"id": "wood",
+"name": "Wood",
+"desc": "A simple resource",
+"value": 1,
+"icon": "Wood",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"filtered_crossroad": {
+"id": "filtered_crossroad",
+"name": "Filter Crossroads",
+"desc": "Drag a Card on top to set the Filter. It will output the filtered card to the top road connection, and any others to the bottom",
+"value": 3,
+"icon": "filtered_crossroad",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_chicken": {
+"id": "blueprint_chicken",
+"name": "Chicken",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"chicken",
+"egg"
+],
+"remove": [
+"egg"
+],
+"result": "chicken",
+"extra": [],
+"time": 120
+},
+{
+"req": [
+"chicken",
+"egg",
+"animal_pen"
+],
+"remove": [
+"egg"
+],
+"result": "chicken",
+"extra": [],
+"time": 120
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"berry": {
+"id": "berry",
+"name": "Berry",
+"desc": "A simple food found in Berry Bushes",
+"value": 1,
+"icon": "Berry_2",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"egg": {
+"id": "egg",
+"name": "Egg",
+"desc": "Can't be eaten raw: thanks salmonella",
+"value": 1,
+"icon": "egg",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"cow": {
+"id": "cow",
+"name": "Cow",
+"desc": "MOOOOOO!",
+"value": -1,
+"icon": "Cow",
+"behavior": "animal",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"brick": {
+"id": "brick",
+"name": "Brick",
+"desc": "A strong building material",
+"value": 3,
+"icon": "Brick",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"travelling_cart": {
+"id": "travelling_cart",
+"name": "Travelling Cart",
+"desc": "Give me 5 Coins and I'll give you a Card!",
+"value": -1,
+"icon": "Traveling-Cart",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "bone",
+"chance": 1
+},
+{
+"card": "iron_bar",
+"chance": 1
+},
+{
+"card": "spear",
+"chance": 1
+},
+{
+"card": "apple",
+"chance": 1
+},
+{
+"card": "soil",
+"chance": 1
+},
+{
+"card": "key",
+"chance": 1
+},
+{
+"card": "treasure_chest",
+"chance": 1
+},
+{
+"card": "frittata",
+"chance": 1
+},
+{
+"card": "brick",
+"chance": 1
+},
+{
+"card": "plank",
+"chance": 1
+},
+{
+"card": "map",
+"chance": 1
+},
+{
+"card": "old_tome",
+"chance": 1
+}
+],
+"bagCount": 3,
+"special": null
+},
+"apple": {
+"id": "apple",
+"name": "Apple",
+"desc": "Keeps doctors away",
+"value": 2,
+"icon": "Apple",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_milkshake": {
+"id": "blueprint_milkshake",
+"name": "Milkshake",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"milk",
+"berry"
+],
+"remove": [],
+"result": "milkshake",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_frittata": {
+"id": "blueprint_frittata",
+"name": "Frittata",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"campfire",
+"egg",
+"potato"
+],
+"remove": [],
+"result": null,
+"extra": [
+"frittata"
+],
+"time": 60
+},
+{
+"req": [
+"stove",
+"egg",
+"potato"
+],
+"remove": [],
+"result": null,
+"extra": [
+"frittata"
+],
+"time": 18
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"lumbercamp": {
+"id": "lumbercamp",
+"name": "Lumber Camp",
+"desc": "An unlimited resource of Wood",
+"value": 3,
+"icon": "Lumbercamp",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "wood",
+"chance": 6
+}
+],
+"bagCount": 3,
+"special": {
+"bag": true
+},
+"harvesttime": 15,
+"amount": 3,
+"isunlimited": 1
+},
+"gold": {
+"id": "gold",
+"name": "Coin",
+"desc": "Humanity's best friend",
+"value": -1,
+"icon": "Coin",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"carrot": {
+"id": "carrot",
+"name": "Carrot",
+"desc": "The crunchiest vegetable",
+"value": 2,
+"icon": "Carrot",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"mushroom": {
+"id": "mushroom",
+"name": "Mushroom",
+"desc": "An edible fungus",
+"value": 2,
+"icon": "Shroom",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_planks": {
+"id": "blueprint_planks",
+"name": "Plank",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"wood",
+"wood",
+"wood",
+"any_villager"
+],
+"remove": [],
+"result": "plank",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"onion": {
+"id": "onion",
+"name": "Onion",
+"desc": "Can be eaten raw or can be cooked, whichever you prefer",
+"value": 2,
+"icon": "Onions",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"temple": {
+"id": "temple",
+"name": "Temple",
+"desc": "An important place of worship. It needs a mysterious artifact.",
+"value": -1,
+"icon": "Temple",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"time": 180
+}
+},
+"blueprint_warehouse": {
+"id": "blueprint_warehouse",
+"name": "Warehouse",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"stone",
+"iron_bar",
+"any_villager"
+],
+"remove": [],
+"result": "warehouse",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"corpse": {
+"id": "corpse",
+"name": "Corpse",
+"desc": "A dead human",
+"value": -1,
+"icon": "Corpse",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"old_tome": {
+"id": "old_tome",
+"name": "Old Tome",
+"desc": "A book with some Idea in it",
+"value": 3,
+"icon": "OldTome",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvesttime": 15,
+"amount": 1,
+"requiredvillagercount": 1
+},
+"stick": {
+"id": "stick",
+"name": "Stick",
+"desc": "Used to be part of a Tree",
+"value": 2,
+"icon": "Stick",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"warehouse": {
+"id": "warehouse",
+"name": "Warehouse",
+"desc": "Increases your Card Cap by 14",
+"value": 5,
+"icon": "Warehouse",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"chest": true
+}
+},
+"blueprint_brickyard": {
+"id": "blueprint_brickyard",
+"name": "Brickyard",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"brick",
+"iron_bar",
+"wood",
+"any_villager"
+],
+"remove": [],
+"result": "brickyard",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"quarry": {
+"id": "quarry",
+"name": "Quarry",
+"desc": "An unlimited resource of Stone",
+"value": 3,
+"icon": "Quarry",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "stone",
+"chance": 7
+},
+{
+"card": "flint",
+"chance": 1
+}
+],
+"bagCount": 3,
+"special": null,
+"harvesttime": 15,
+"amount": 3,
+"isunlimited": 1
+},
+"bone": {
+"id": "bone",
+"name": "Bone",
+"desc": "Fact: a skeleton consists of many of these",
+"value": 3,
+"icon": "Bone",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_animalpen": {
+"id": "blueprint_animalpen",
+"name": "Animal Pen",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"plank",
+"plank",
+"wood",
+"wood",
+"iron_bar",
+"any_villager"
+],
+"remove": [],
+"result": "animal_pen",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"raw_meat": {
+"id": "raw_meat",
+"name": "Raw Meat",
+"desc": "Should be cooked first",
+"value": 3,
+"icon": "Raw-Meat",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_garden": {
+"id": "blueprint_garden",
+"name": "Garden",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"soil",
+"stone",
+"stone",
+"wood",
+"wood",
+"any_villager"
+],
+"remove": [
+"soil",
+"stone",
+"stone",
+"wood",
+"wood"
+],
+"result": "garden",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"stew": {
+"id": "stew",
+"name": "Stew",
+"desc": "A hearty meal",
+"value": 10,
+"icon": "Stew",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_smelting": {
+"id": "blueprint_smelting",
+"name": "Smelter",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"flint",
+"flint",
+"brick",
+"brick",
+"plank",
+"any_villager"
+],
+"remove": [],
+"result": "smelter",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"rumor_combat": {
+"id": "rumor_combat",
+"name": "Combat",
+"desc": "Some attack types are stronger against others. For example, Melee beats Magic!",
+"value": 1,
+"icon": "RumorCombat",
+"behavior": "rumor",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"swordsman": {
+"id": "swordsman",
+"name": "Swordsman",
+"desc": "A villager that's ready to fight!",
+"value": -1,
+"icon": "Swordman",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"dog": {
+"id": "dog",
+"name": "Dog",
+"desc": "Humanity's true best friend. Can do anything a Human can, just slower!",
+"value": -1,
+"icon": "Dog",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"explorer": {
+"id": "explorer",
+"name": "Explorer",
+"desc": "Very fast at exploring Locations, but slightly slower at other tasks",
+"value": -1,
+"icon": "Explorer",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"militia": {
+"id": "militia",
+"name": "Militia",
+"desc": "A villager that's ready to rumble.",
+"value": -1,
+"icon": "Militia",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"villager": {
+"id": "villager",
+"name": "Villager",
+"desc": "A hard-working pioneer",
+"value": -1,
+"icon": "Villager",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"small_slime": {
+"id": "small_slime",
+"name": "Small Slime",
+"desc": "A goodie-filled goo",
+"value": -1,
+"icon": "Small-Slime",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"skeleton": {
+"id": "skeleton",
+"name": "Skeleton",
+"desc": "A monster consisting of a set of bones",
+"value": -1,
+"icon": "Skeleton",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"rat": {
+"id": "rat",
+"name": "Rat",
+"desc": "Small version of a Giant Rat",
+"value": -1,
+"icon": "Small-Rat",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"wicked_witch": {
+"id": "wicked_witch",
+"name": "Wicked Witch",
+"desc": "I liked her more when she was still a regular Old Lady",
+"value": -1,
+"icon": "WickedWitch",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"giant_rat": {
+"id": "giant_rat",
+"name": "Giant Rat",
+"desc": "Big version of a small Rat",
+"value": -1,
+"icon": "Big-Rat",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"bear": {
+"id": "bear",
+"name": "Bear",
+"desc": "Soft yet dangerous",
+"value": -1,
+"icon": "Bear",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"demon": {
+"id": "demon",
+"name": "Demon",
+"desc": "The Final Boss",
+"value": -1,
+"icon": "Demon",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"slime": {
+"id": "slime",
+"name": "Slime",
+"desc": "3 small slimes in a trench coat",
+"value": -1,
+"icon": "Big-Slime",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"goblin": {
+"id": "goblin",
+"name": "Goblin",
+"desc": "A monster with bad posture",
+"value": -1,
+"icon": "Goblin",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"wolf": {
+"id": "wolf",
+"name": "Wolf",
+"desc": "It looks vicious",
+"value": -1,
+"icon": "Wolf",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"map": {
+"id": "map",
+"name": "Map",
+"desc": "Use a Map to turn a Villager into an Explorer",
+"value": 3,
+"icon": "Map",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"sword": {
+"id": "sword",
+"name": "Sword",
+"desc": "An Iron Bar with a pointy end",
+"value": 3,
+"icon": "Sword",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"spear": {
+"id": "spear",
+"name": "Spear",
+"desc": "Stick with a pointy end",
+"value": 3,
+"icon": "Spear",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_wishing_well": {
+"id": "blueprint_wishing_well",
+"name": "Wishing Well",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"any_villager",
+"brick",
+"magic_dust",
+"magic_dust",
+"brick",
+"bottle_of_water"
+],
+"remove": [],
+"result": "wishing_well",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_resource_magnet": {
+"id": "blueprint_resource_magnet",
+"name": "Resource Magnet",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"any_villager",
+"gold_bar",
+"magic_dust"
+],
+"remove": [],
+"result": "resource_magnet",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"breeding_pen": {
+"id": "breeding_pen",
+"name": "Breeding Pen",
+"desc": "A pen for breeding Animals",
+"value": 3,
+"icon": "BreedingPen",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"feed": "wheat",
+"time": 45
+}
+},
+"heavy_foundation": {
+"id": "heavy_foundation",
+"name": "Magic Glue",
+"desc": "Sticks the stack on top of it to the board and prevents it from moving",
+"value": 3,
+"icon": "MagicGlue",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"resource_magnet": {
+"id": "resource_magnet",
+"name": "Resource Magnet",
+"desc": "This card magically pulls cards of the same kind towards it",
+"value": 5,
+"icon": "Magnet",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_lighthouse": {
+"id": "blueprint_lighthouse",
+"name": "Lighthouse",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"brick",
+"brick",
+"glass",
+"campfire",
+"any_villager"
+],
+"remove": [
+"brick",
+"brick",
+"glass",
+"campfire"
+],
+"result": "lighthouse",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_heavy_foundation": {
+"id": "blueprint_heavy_foundation",
+"name": "Magic Glue",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"magic_dust",
+"charcoal"
+],
+"remove": [],
+"result": "heavy_foundation",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_breedingpen": {
+"id": "blueprint_breedingpen",
+"name": "Breeding Pen",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"animal_pen",
+"magic_dust",
+"magic_dust"
+],
+"remove": [
+"animal_pen",
+"magic_dust",
+"magic_dust"
+],
+"result": "breeding_pen",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"hotpot": {
+"id": "hotpot",
+"name": "Hotpot",
+"desc": "A replenishable source of Food that your Villagers can eat from. Add Food and they'll eat from it at the end of the Moon!",
+"value": 5,
+"icon": "Hotpot",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"time": 30
+}
+},
+"blueprint_hotpot": {
+"id": "blueprint_hotpot",
+"name": "Hotpot",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"any_villager",
+"campfire|stove",
+"iron_bar",
+"iron_bar"
+],
+"remove": [],
+"result": "hotpot",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_road_builder": {
+"id": "blueprint_road_builder",
+"name": "Road Builder",
+"desc": "A guild for road builders, allows you to build roads between cards",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"brick",
+"brick",
+"brick",
+"brick",
+"builder"
+],
+"remove": [],
+"result": "road_builder",
+"extra": [],
+"time": 20
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"conveyor": {
+"id": "conveyor",
+"name": "Crane",
+"desc": "Lifts cards from one place to another",
+"value": 3,
+"icon": "Crane",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"time": 10
+}
+},
+"lighthouse": {
+"id": "lighthouse",
+"name": "Lighthouse",
+"desc": "Increases the board size past the Warehouse limit",
+"value": 3,
+"icon": "Vuurtoren",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"time": 120
+}
+},
+"slaughter_house": {
+"id": "slaughter_house",
+"name": "Butchery",
+"desc": "Sends animals on vacation",
+"value": 3,
+"icon": "Butchery",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"time": 30
+}
+},
+"blueprint_conveyor": {
+"id": "blueprint_conveyor",
+"name": "Crane",
+"desc": "Lifts cards from one place to another",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"iron_bar",
+"plank",
+"stick",
+"magic_dust"
+],
+"remove": [],
+"result": "conveyor",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_resourcechest": {
+"id": "blueprint_resourcechest",
+"name": "Resource Chest",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"plank",
+"plank",
+"iron_bar",
+"flint"
+],
+"remove": [],
+"result": "resource_chest",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"crossroad": {
+"id": "crossroad",
+"name": "Crossroads",
+"desc": "Automatically redirects cards on top of it to its road outputs. It cycles through the different outputs one by one",
+"value": 3,
+"icon": "crossroad",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_crossroad": {
+"id": "blueprint_crossroad",
+"name": "Crossroads",
+"desc": "Automatically redirects cards on top of it to its road outputs. It cycles through the different outputs one by one",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"brick",
+"flint",
+"any_villager"
+],
+"remove": [],
+"result": "crossroad",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"trash_can": {
+"id": "trash_can",
+"name": "Dustbin",
+"desc": "Allows you to get rid of cards you don't want anymore",
+"value": 3,
+"icon": "Dustbin",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"resource_chest": {
+"id": "resource_chest",
+"name": "Resource Chest",
+"desc": "A Chest for storing Resources",
+"value": 3,
+"icon": "Coin-Chest",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_slaughterhouse": {
+"id": "blueprint_slaughterhouse",
+"name": "Butchery",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"raw_meat",
+"plank",
+"plank",
+"iron_bar",
+"any_villager"
+],
+"remove": [],
+"result": "slaughter_house",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_university": {
+"id": "blueprint_university",
+"name": "University",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"brick",
+"brick",
+"brick",
+"brick",
+"wizard|mage"
+],
+"remove": [],
+"result": "university",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"wishing_well": {
+"id": "wishing_well",
+"name": "Wishing Well",
+"desc": "It grants you a wish for every [count] coins.",
+"value": 5,
+"icon": "WishingWell",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"university": {
+"id": "university",
+"name": "University",
+"desc": "A place of wisdom. Gives you a new Idea for every [max_count] Coins you gift them.",
+"value": 5,
+"icon": "Zweinstijn",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"time": 120
+}
+},
+"road_builder": {
+"id": "road_builder",
+"name": "Road Builder",
+"desc": "A guild for road builders, allows you to build roads between cards",
+"value": 3,
+"icon": "road_builder",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_trash_can": {
+"id": "blueprint_trash_can",
+"name": "Dustbin",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"any_villager",
+"iron_bar",
+"goop"
+],
+"remove": [],
+"result": "trash_can",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"ideas_island": {
+"id": "ideas_island",
+"name": "ideas_island",
+"desc": "",
+"value": 0,
+"icon": "Idea",
+"behavior": "other",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"any_villager",
+"charcoal"
+],
+"remove": [],
+"result": null,
+"extra": [],
+"time": 5
+},
+{
+"req": [
+"treasure_map",
+"any_villager"
+],
+"remove": [],
+"result": "sacred_chest",
+"extra": [
+"blueprint_sacred_key"
+],
+"time": 120
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"raw_crab_meat": {
+"id": "raw_crab_meat",
+"name": "Raw Crab Meat",
+"desc": "Should be cooked before consumption",
+"value": 2,
+"icon": "RawCrabMeat",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_distillery": {
+"id": "blueprint_distillery",
+"name": "Distillery",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"stove",
+"iron_bar",
+"plank",
+"any_villager"
+],
+"remove": [
+"stove",
+"iron_bar",
+"plank"
+],
+"result": "distillery",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"composter": {
+"id": "composter",
+"name": "Composter",
+"desc": "Turns 5 Food into Soil",
+"value": 5,
+"icon": "Composter",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"accept": [
+"poop"
+],
+"need": 5,
+"time": 60,
+"result": "soil"
+}
+},
+"cave": {
+"id": "cave",
+"name": "Cave",
+"desc": "Pirates used to keep their Treasure Maps in these..",
+"value": 5,
+"icon": "Cave",
+"behavior": "location",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "treasure_map",
+"chance": 0
+}
+],
+"bagCount": 1,
+"special": null,
+"harvesttime": 60,
+"amount": 5,
+"requiredvillagercount": 1
+},
+"driftwood": {
+"id": "driftwood",
+"name": "Driftwood",
+"desc": "A bunch of wood that has washed ashore",
+"value": 0,
+"icon": "Driftwood",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "wood",
+"chance": 50
+},
+{
+"card": "stick",
+"chance": 5
+},
+{
+"card": "plank",
+"chance": 1
+},
+{
+"card": "bottle_of_rum",
+"chance": 1
+}
+],
+"bagCount": 2,
+"special": null,
+"harvesttime": 10,
+"amount": 2,
+"requiredvillagercount": 1
+},
+"treasure_map": {
+"id": "treasure_map",
+"name": "Treasure Map",
+"desc": "X marks the spot. Needs to be searched with a Villager",
+"value": 3,
+"icon": "TreasureMap",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"sand": {
+"id": "sand",
+"name": "Sand",
+"desc": "The main ingredient for a nice beach",
+"value": 1,
+"icon": "Sand",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"tuna": {
+"id": "tuna",
+"name": "Tuna",
+"desc": "Chunky fish",
+"value": -1,
+"icon": "Tuna",
+"behavior": "fish",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_sushi": {
+"id": "blueprint_sushi",
+"name": "Sushi",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"raw_fish",
+"seaweed"
+],
+"remove": [],
+"result": "sushi",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"monkey": {
+"id": "monkey",
+"name": "Monkey",
+"desc": "Would really like a Banana",
+"value": -1,
+"icon": "Aap",
+"behavior": "animal",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"raw_fish": {
+"id": "raw_fish",
+"name": "Raw Fish",
+"desc": "It's slippery",
+"value": 2,
+"icon": "RawFish",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"lime": {
+"id": "lime",
+"name": "Lime",
+"desc": "Round and sour",
+"value": 2,
+"icon": "Lime",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"distillery": {
+"id": "distillery",
+"name": "Distillery",
+"desc": "Used for making booze",
+"value": 3,
+"icon": "Destillery",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_coin": {
+"id": "blueprint_coin",
+"name": "Coin",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"smelter",
+"gold_bar",
+"wood"
+],
+"remove": [],
+"result": "gold",
+"extra": [
+"gold",
+"gold"
+],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_fill_bottle": {
+"id": "blueprint_fill_bottle",
+"name": "Empty Bottle",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"spring",
+"empty_bottle"
+],
+"remove": [
+"empty_bottle"
+],
+"result": "bottle_of_water",
+"extra": [],
+"time": 10
+},
+{
+"req": [
+"water",
+"empty_bottle"
+],
+"remove": [
+"water",
+"empty_bottle"
+],
+"result": "bottle_of_water",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"goop": {
+"id": "goop",
+"name": "Goop",
+"desc": "Smush, sludge, gunk: it's spoilt food",
+"value": 0,
+"icon": "Goop",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_shell_chest": {
+"id": "blueprint_shell_chest",
+"name": "Shell Chest",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"shell",
+"wood",
+"wood"
+],
+"remove": [],
+"result": "shell_chest",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"gold_ore": {
+"id": "gold_ore",
+"name": "Gold Ore",
+"desc": "Can be turned into Gold Bars",
+"value": 3,
+"icon": "Goldore",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_cathedral": {
+"id": "blueprint_cathedral",
+"name": "Cathedral",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"gold_bar",
+"gold_bar",
+"gold_bar",
+"gold_bar",
+"gold_bar",
+"glass",
+"glass",
+"glass",
+"glass",
+"glass",
+"brick",
+"brick",
+"brick",
+"brick",
+"brick",
+"plank",
+"plank",
+"plank",
+"plank",
+"plank",
+"any_villager",
+"any_villager",
+"any_villager",
+"any_villager",
+"any_villager"
+],
+"remove": [],
+"result": "cathedral",
+"extra": [],
+"time": 180
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"sugar": {
+"id": "sugar",
+"name": "Cane Sugar",
+"desc": "Very sweet!",
+"value": 2,
+"icon": "CaneSugar",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"glass": {
+"id": "glass",
+"name": "Glass",
+"desc": "A transparent resource",
+"value": 3,
+"icon": "Glass",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_gold_bar": {
+"id": "blueprint_gold_bar",
+"name": "Gold Bar",
+"desc": "",
+"value": 3,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"smelter",
+"wood",
+"gold_ore"
+],
+"remove": [],
+"result": "gold_bar",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"sloop": {
+"id": "sloop",
+"name": "Sloop",
+"desc": "Can carry 10 Cards. Needs a Villager to start sailing. Can't carry Buildings",
+"value": 5,
+"icon": "Sloop",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"cathedral": {
+"id": "cathedral",
+"name": "Cathedral",
+"desc": "An important place of worship. It needs a relic.",
+"value": 10,
+"icon": "Cathedral",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"parrot": {
+"id": "parrot",
+"name": "Parrot",
+"desc": "Talks like a human, flies like a bird. Makes Pirates happy",
+"value": -1,
+"icon": "Parrot",
+"behavior": "animal",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"island_relic": {
+"id": "island_relic",
+"name": "Island Relic",
+"desc": "Bring it to a Cathedral",
+"value": -1,
+"icon": "IslandRelic",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"rope": {
+"id": "rope",
+"name": "Rope",
+"desc": "Long and fibrous",
+"value": 3,
+"icon": "Rope",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"seaweed": {
+"id": "seaweed",
+"name": "Seaweed",
+"desc": "Salad of the sea",
+"value": 1,
+"icon": "Seaweed",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"charcoal": {
+"id": "charcoal",
+"name": "Charcoal",
+"desc": "Functions as an antidote for Snake Poison",
+"value": 2,
+"icon": "charcoal",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"spring": {
+"id": "spring",
+"name": "Spring",
+"desc": "A water source. Can also be used to fill Empty Bottles",
+"value": 1,
+"icon": "WaterSpring",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "water",
+"chance": 1
+}
+],
+"bagCount": 1,
+"special": null,
+"harvesttime": 10,
+"amount": 3,
+"requiredvillagercount": 1
+},
+"pirate_boat": {
+"id": "pirate_boat",
+"name": "Pirate Boat",
+"desc": "A boat full of Pirates",
+"value": -1,
+"icon": "PirateBoat",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_fabric": {
+"id": "blueprint_fabric",
+"name": "Fabric",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"cotton",
+"cotton",
+"cotton",
+"cotton",
+"any_villager"
+],
+"remove": [],
+"result": "fabric",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"jungle": {
+"id": "jungle",
+"name": "Jungle",
+"desc": "A forest known for books",
+"value": 5,
+"icon": "Jungle",
+"behavior": "location",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "tiger",
+"chance": 3
+},
+{
+"card": "cotton_plant",
+"chance": 2
+},
+{
+"card": "banana",
+"chance": 3
+},
+{
+"card": "monkey",
+"chance": 2
+},
+{
+"card": "lime",
+"chance": 2
+},
+{
+"card": "sugar_cane",
+"chance": 2
+},
+{
+"card": "parrot",
+"chance": 3
+},
+{
+"card": "kid",
+"chance": 1
+},
+{
+"card": "old_tome",
+"chance": 1
+},
+{
+"card": "wolf",
+"chance": 2
+}
+],
+"bagCount": 1,
+"special": null,
+"harvesttime": 30,
+"amount": 3,
+"isunlimited": 1,
+"requiredvillagercount": 1
+},
+"eel": {
+"id": "eel",
+"name": "Eel",
+"desc": "Electric sea snake",
+"value": -1,
+"icon": "Eel",
+"behavior": "fish",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"sand_quarry": {
+"id": "sand_quarry",
+"name": "Sand Quarry",
+"desc": "An unlimited resource of Sand",
+"value": 3,
+"icon": "SandQuarry",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "sand",
+"chance": 1
+}
+],
+"bagCount": 1,
+"special": null,
+"harvesttime": 10,
+"amount": 3,
+"isunlimited": 1,
+"requiredvillagercount": 1
+},
+"blueprint_aquarium": {
+"id": "blueprint_aquarium",
+"name": "Aquarium",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"glass",
+"glass",
+"iron_bar",
+"any_villager"
+],
+"remove": [],
+"result": "aquarium",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"bottle_of_water": {
+"id": "bottle_of_water",
+"name": "Bottle of Water",
+"desc": "A transparent bottle filled with transparent liquid",
+"value": 1,
+"icon": "WaterBottle",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"shark": {
+"id": "shark",
+"name": "Shark",
+"desc": "A type of big angry fish",
+"value": -1,
+"icon": "Shark",
+"behavior": "fish",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"sushi": {
+"id": "sushi",
+"name": "Sushi",
+"desc": "A delicious treat",
+"value": 2,
+"icon": "Sushi",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"gold_bar": {
+"id": "gold_bar",
+"name": "Gold Bar",
+"desc": "A very shiny, very valuable material",
+"value": 5,
+"icon": "Goldbar",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_fishing_rod": {
+"id": "blueprint_fishing_rod",
+"name": "Fishing Rod",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"stick",
+"rope"
+],
+"remove": [],
+"result": "fishing_rod",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"tamago_sushi": {
+"id": "tamago_sushi",
+"name": "Tamago Sushi",
+"desc": "Egg flavored sushi",
+"value": 2,
+"icon": "TamagoSushi",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"water": {
+"id": "water",
+"name": "Water",
+"desc": "Wet liquid",
+"value": 1,
+"icon": "water",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"mackerel": {
+"id": "mackerel",
+"name": "Mackerel",
+"desc": "Small fish",
+"value": -1,
+"icon": "Makreel",
+"behavior": "fish",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"cooked_crab_meat": {
+"id": "cooked_crab_meat",
+"name": "Cooked Crab",
+"desc": "It's fancy",
+"value": 2,
+"icon": "CookedCrabMeat",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"gold_mine": {
+"id": "gold_mine",
+"name": "Gold Mine",
+"desc": "An unlimited resource of Gold Ore",
+"value": 5,
+"icon": "GoldMine",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "gold_ore",
+"chance": 1
+},
+{
+"card": "stone",
+"chance": 1
+},
+{
+"card": "gold",
+"chance": 1
+}
+],
+"bagCount": 3,
+"special": {
+"bag": true
+},
+"harvesttime": 45,
+"amount": 3,
+"isunlimited": 1
+},
+"mess_hall": {
+"id": "mess_hall",
+"name": "Mess Hall",
+"desc": "Villagers will prioritize eating food that's on top of the Mess Hall",
+"value": 5,
+"icon": "Messhal",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_bottle": {
+"id": "blueprint_bottle",
+"name": "Empty Bottle",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"campfire",
+"glass",
+"glass"
+],
+"remove": [],
+"result": null,
+"extra": [
+"empty_bottle"
+],
+"time": 10
+},
+{
+"req": [
+"stove",
+"glass",
+"glass"
+],
+"remove": [],
+"result": null,
+"extra": [
+"empty_bottle"
+],
+"time": 3
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"ceviche": {
+"id": "ceviche",
+"name": "Ceviche",
+"desc": "Sour fish, what's not to like",
+"value": 3,
+"icon": "Ceviche",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_mess_hall": {
+"id": "blueprint_mess_hall",
+"name": "Mess Hall",
+"desc": "Villagers will prioritize eating food that's on top of the Mess Hall",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"plank",
+"iron_bar",
+"campfire"
+],
+"remove": [
+"plank",
+"iron_bar",
+"campfire"
+],
+"result": "mess_hall",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_glass": {
+"id": "blueprint_glass",
+"name": "Glass",
+"desc": "",
+"value": 3,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"smelter",
+"wood",
+"sand"
+],
+"remove": [],
+"result": "glass",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_sand_quarry": {
+"id": "blueprint_sand_quarry",
+"name": "Sand Quarry",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"any_villager",
+"sand",
+"flint",
+"wood"
+],
+"remove": [],
+"result": "sand_quarry",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"seafood_stew": {
+"id": "seafood_stew",
+"name": "Seafood Stew",
+"desc": "Delicious Island stew",
+"value": 2,
+"icon": "FishStew",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"frigate": {
+"id": "frigate",
+"name": "Frigate",
+"desc": "Can carry 25 Cards. Needs a Villager to start sailing. Can't carry Buildings",
+"value": 10,
+"icon": "Frigate",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"crab": {
+"id": "crab",
+"name": "Crab",
+"desc": "Why does everything evolve into crabs?",
+"value": -1,
+"icon": "Crab",
+"behavior": "animal",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_tamago_sushi": {
+"id": "blueprint_tamago_sushi",
+"name": "Tamago Sushi",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"omelette",
+"seaweed"
+],
+"remove": [],
+"result": "tamago_sushi",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"aquarium": {
+"id": "aquarium",
+"name": "Aquarium",
+"desc": "Can hold 5 Fish",
+"value": 3,
+"icon": "Aquarium",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"fabric": {
+"id": "fabric",
+"name": "Fabric",
+"desc": "Fibres. together. strong.",
+"value": 5,
+"icon": "Fabric",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"fishing_spot": {
+"id": "fishing_spot",
+"name": "Fishing Spot",
+"desc": "A body of water filled with Fish",
+"value": 1,
+"icon": "FishingSpot",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvesttime": 30,
+"amount": 1,
+"requiredvillagercount": 1
+},
+"blueprint_composter": {
+"id": "blueprint_composter",
+"name": "Composter",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"poop",
+"poop",
+"plank",
+"brick",
+"any_villager"
+],
+"remove": [],
+"result": "composter",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"cotton_plant": {
+"id": "cotton_plant",
+"name": "Cotton Plant",
+"desc": "Can be harvested for Cotton",
+"value": 1,
+"icon": "Cottonplant",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "cotton",
+"chance": 5
+}
+],
+"bagCount": 1,
+"special": null,
+"harvesttime": 10,
+"amount": 2,
+"requiredvillagercount": 1
+},
+"sandstone": {
+"id": "sandstone",
+"name": "Sandstone",
+"desc": "An alternative to Stone. Can be used for anything Stone is needed for.",
+"value": 2,
+"icon": "Sandstone",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"greenhouse": {
+"id": "greenhouse",
+"name": "Greenhouse",
+"desc": "A high-tech building for growing Food. Automatically replants crops.",
+"value": 3,
+"icon": "Greenhouse",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"bag": true
+}
+},
+"stable_portal": {
+"id": "stable_portal",
+"name": "Stable Portal",
+"desc": "A permanent portal to The Dark Forest. Can move 7 Cards. Time for revenge!",
+"value": 3,
+"icon": "Portal",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"cotton": {
+"id": "cotton",
+"name": "Cotton",
+"desc": "Nature's wool",
+"value": 1,
+"icon": "Cotton",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_sandstone": {
+"id": "blueprint_sandstone",
+"name": "Sandstone",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"sand",
+"sand",
+"any_villager"
+],
+"remove": [],
+"result": "sandstone",
+"extra": [],
+"time": 5
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"shell_chest": {
+"id": "shell_chest",
+"name": "Shell Chest",
+"desc": "A chest that can hold Shells",
+"value": 3,
+"icon": "ChellChest",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"rumor_tuna_bait": {
+"id": "rumor_tuna_bait",
+"name": "Tuna Bait",
+"desc": "When using a Fish Trap, Lime can be used to catch Tuna",
+"value": 1,
+"icon": "Rumor",
+"behavior": "rumor",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"cooked_fish": {
+"id": "cooked_fish",
+"name": "Grilled Fish",
+"desc": "I can taste the grill marks",
+"value": 3,
+"icon": "GrilledFish",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_greenhouse": {
+"id": "blueprint_greenhouse",
+"name": "Greenhouse",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"iron_bar",
+"iron_bar",
+"glass",
+"glass",
+"soil|garden|farm",
+"any_villager"
+],
+"remove": [
+"iron_bar",
+"iron_bar",
+"glass",
+"glass",
+"soil|garden|farm"
+],
+"result": "greenhouse",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_charcoal": {
+"id": "blueprint_charcoal",
+"name": "Charcoal",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"campfire",
+"wood|stick"
+],
+"remove": [],
+"result": null,
+"extra": [
+"charcoal"
+],
+"time": 10
+},
+{
+"req": [
+"stove",
+"wood|stick"
+],
+"remove": [],
+"result": null,
+"extra": [
+"charcoal"
+],
+"time": 3
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"banana": {
+"id": "banana",
+"name": "Banana",
+"desc": "Everyone's favorite yellow fruit",
+"value": 1,
+"icon": "Banaan",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"rumor_eel_bait": {
+"id": "rumor_eel_bait",
+"name": "Eel Bait",
+"desc": "When using a Fish Trap, Banana can be used to catch Eel",
+"value": 1,
+"icon": "Rumor",
+"behavior": "rumor",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_frigate": {
+"id": "blueprint_frigate",
+"name": "Frigate",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"plank",
+"plank",
+"plank",
+"plank",
+"plank",
+"plank",
+"plank",
+"plank",
+"plank",
+"plank",
+"sail",
+"sail",
+"sail",
+"any_villager",
+"any_villager"
+],
+"remove": [],
+"result": "frigate",
+"extra": [],
+"time": 60
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"sail": {
+"id": "sail",
+"name": "Sail",
+"desc": "Used for making Boats",
+"value": 3,
+"icon": "Sail",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_seafood_stew": {
+"id": "blueprint_seafood_stew",
+"name": "Seafood Stew",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"campfire",
+"raw_crab_meat|cooked_crab_meat",
+"raw_fish|cooked_fish",
+"chili_pepper"
+],
+"remove": [],
+"result": null,
+"extra": [
+"seafood_stew"
+],
+"time": 120
+},
+{
+"req": [
+"stove",
+"raw_crab_meat|cooked_crab_meat",
+"raw_fish|cooked_fish",
+"chili_pepper"
+],
+"remove": [],
+"result": null,
+"extra": [
+"seafood_stew"
+],
+"time": 36
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"shell": {
+"id": "shell",
+"name": "Shell",
+"desc": "The main currency on the Island",
+"value": -1,
+"icon": "Shell",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"cod": {
+"id": "cod",
+"name": "Cod",
+"desc": "Wet and slippery fish",
+"value": -1,
+"icon": "Kibbeling",
+"behavior": "fish",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"rumor_island": {
+"id": "rumor_island",
+"name": "The Island",
+"desc": "Gold and Glass can be found on the Island",
+"value": 1,
+"icon": "Rumor",
+"behavior": "rumor",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_sacred_key": {
+"id": "blueprint_sacred_key",
+"name": "Sacred Key",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"smelter",
+"gold_bar",
+"gold_bar",
+"gold_bar",
+"glass",
+"glass",
+"glass"
+],
+"remove": [],
+"result": "sacred_key",
+"extra": [],
+"time": 120
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"fish_trap": {
+"id": "fish_trap",
+"name": "Fish Trap",
+"desc": "Needs a type of Food as bait",
+"value": 3,
+"icon": "FishTrap",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": {
+"time": 60
+}
+},
+"blueprint_cooked_crab_meat": {
+"id": "blueprint_cooked_crab_meat",
+"name": "Cooked Crab",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"campfire",
+"raw_crab_meat"
+],
+"remove": [],
+"result": null,
+"extra": [
+"cooked_crab_meat"
+],
+"time": 60
+},
+{
+"req": [
+"stove",
+"raw_crab_meat"
+],
+"remove": [],
+"result": null,
+"extra": [
+"cooked_crab_meat"
+],
+"time": 18
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_gold_mine": {
+"id": "blueprint_gold_mine",
+"name": "Gold Mine",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"flint",
+"gold_ore",
+"wood",
+"stone",
+"any_villager"
+],
+"remove": [],
+"result": "gold_mine",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_sail": {
+"id": "blueprint_sail",
+"name": "Sail",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"fabric",
+"rope",
+"any_villager"
+],
+"remove": [],
+"result": "sail",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"bottle_of_rum": {
+"id": "bottle_of_rum",
+"name": "Bottle of Rum",
+"desc": "Be careful: gets Villagers drunk!",
+"value": 3,
+"icon": "BottleOfRum",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_cooked_fish": {
+"id": "blueprint_cooked_fish",
+"name": "Grilled Fish",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"campfire",
+"raw_fish"
+],
+"remove": [],
+"result": null,
+"extra": [
+"cooked_fish"
+],
+"time": 60
+},
+{
+"req": [
+"stove",
+"raw_fish"
+],
+"remove": [],
+"result": null,
+"extra": [
+"cooked_fish"
+],
+"time": 18
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_ceviche": {
+"id": "blueprint_ceviche",
+"name": "Ceviche",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"lime",
+"raw_fish"
+],
+"remove": [],
+"result": "ceviche",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"banana_tree": {
+"id": "banana_tree",
+"name": "Banana Tree",
+"desc": "Made of Bananas",
+"value": 0,
+"icon": "BananaTree",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "banana",
+"chance": 1
+}
+],
+"bagCount": 2,
+"special": null,
+"harvesttime": 10,
+"amount": 2,
+"requiredvillagercount": 1
+},
+"blueprint_rope": {
+"id": "blueprint_rope",
+"name": "Rope",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"cotton",
+"cotton",
+"any_villager"
+],
+"remove": [],
+"result": "rope",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"chili_pepper": {
+"id": "chili_pepper",
+"name": "Chili Pepper",
+"desc": "Nice and spicy",
+"value": 2,
+"icon": "ChilliPepper",
+"behavior": "food",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"empty_bottle": {
+"id": "empty_bottle",
+"name": "Empty Bottle",
+"desc": "Made of Glass. Can be refilled!",
+"value": 1,
+"icon": "EmptyBottle",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_fish_trap": {
+"id": "blueprint_fish_trap",
+"name": "Fish Trap",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"fishing_spot",
+"stone",
+"rope"
+],
+"remove": [
+"fishing_spot",
+"stone",
+"rope"
+],
+"result": "fish_trap",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"sugar_cane": {
+"id": "sugar_cane",
+"name": "Sugar Cane",
+"desc": "It's candy flavored grass",
+"value": 0,
+"icon": "Sugercane",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "sugar",
+"chance": 5
+}
+],
+"bagCount": 1,
+"special": null,
+"harvesttime": 10,
+"amount": 2,
+"requiredvillagercount": 1
+},
+"blueprint_sloop": {
+"id": "blueprint_sloop",
+"name": "Sloop",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"plank",
+"plank",
+"sail",
+"any_villager"
+],
+"remove": [],
+"result": "sloop",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_rum": {
+"id": "blueprint_rum",
+"name": "Bottle of Rum",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"distillery",
+"sugar",
+"bottle_of_water|water"
+],
+"remove": [],
+"result": "bottle_of_rum",
+"extra": [],
+"time": 10
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"blueprint_rowboat": {
+"id": "blueprint_rowboat",
+"name": "Rowboat",
+"desc": "",
+"value": 1,
+"icon": "Idea",
+"behavior": "blueprint",
+"workers": 0,
+"educated": false,
+"recipes": [
+{
+"req": [
+"plank",
+"iron_bar"
+],
+"remove": [],
+"result": "rowboat",
+"extra": [],
+"time": 30
+}
+],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"gold_deposit": {
+"id": "gold_deposit",
+"name": "Gold Deposit",
+"desc": "It contains Gold Ore",
+"value": 0,
+"icon": "GoldDeposit",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": [
+{
+"card": "gold_ore",
+"chance": 5
+},
+{
+"card": "stone",
+"chance": 1
+},
+{
+"card": "gold",
+"chance": 1
+}
+],
+"bagCount": 3,
+"special": null,
+"harvesttime": 10,
+"amount": 3,
+"requiredvillagercount": 1
+},
+"rumor_shark_bait": {
+"id": "rumor_shark_bait",
+"name": "Shark Bait",
+"desc": "When using a Fish Trap, Raw Meat can be used to catch Shark",
+"value": 1,
+"icon": "Rumor",
+"behavior": "rumor",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"sacred_key": {
+"id": "sacred_key",
+"name": "Sacred Key",
+"desc": "Forged with Glass and Gold. Used for opening the Sacred Chest.",
+"value": -1,
+"icon": "SacredKey",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"rowboat": {
+"id": "rowboat",
+"name": "Rowboat",
+"desc": "Can carry 1 Card. Needs a Villager to start sailing. Can't carry Buildings",
+"value": 3,
+"icon": "RowBoat",
+"behavior": "structure",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"sacred_chest": {
+"id": "sacred_chest",
+"name": "Sacred Chest",
+"desc": "It needs a Sacred Key to be opened",
+"value": -1,
+"icon": "SacredChest",
+"behavior": "resource",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"friendly_pirate": {
+"id": "friendly_pirate",
+"name": "Friendly Pirate",
+"desc": "It has joined your side",
+"value": -1,
+"icon": "FriendlyPirate",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"fisher": {
+"id": "fisher",
+"name": "Fisher",
+"desc": "An expert at fishing. Fish fear him",
+"value": -1,
+"icon": "Fisherman",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"trained_monkey": {
+"id": "trained_monkey",
+"name": "Trained Monkey",
+"desc": "Can help you out with chores. Turns back into a normal Monkey at the end of the Moon",
+"value": -1,
+"icon": "TrainedMonkey",
+"behavior": "worker",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"kraken": {
+"id": "kraken",
+"name": "Kraken",
+"desc": "Mad that you took its relic",
+"value": -1,
+"icon": "Kraken",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"pirate": {
+"id": "pirate",
+"name": "Pirate",
+"desc": "A burly angry seaman",
+"value": -1,
+"icon": "AngryPirate",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"momma_crab": {
+"id": "momma_crab",
+"name": "Momma Crab",
+"desc": "Maybe you shouldn't have killed those Crabs?",
+"value": -1,
+"icon": "MammaCrab",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"tiger": {
+"id": "tiger",
+"name": "Tiger",
+"desc": "A very strong cat",
+"value": -1,
+"icon": "Tiger",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"demon_lord": {
+"id": "demon_lord",
+"name": "Demon Lord",
+"desc": "The final, final boss!",
+"value": -1,
+"icon": "Demonlord",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"seagull": {
+"id": "seagull",
+"name": "Seagull",
+"desc": "An angry bird",
+"value": -1,
+"icon": "Seagull",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"tentacle": {
+"id": "tentacle",
+"name": "Tentacle",
+"desc": "Wiggle wiggle wiggle",
+"value": -1,
+"icon": "Tentacle",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"snake": {
+"id": "snake",
+"name": "Snake",
+"desc": "A slithering, poisonous creature",
+"value": -1,
+"icon": "Snake",
+"behavior": "enemy",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"fishing_rod": {
+"id": "fishing_rod",
+"name": "Fishing Rod",
+"desc": "Give it to a Villager to turn them into a Fisher",
+"value": 3,
+"icon": "Fishing-rod",
+"behavior": "equipable",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null
+},
+"venom": {
+"id": "venom",
+"name": "card_venom_name",
+"desc": "card_venom_description",
+"value": 1,
+"icon": "Idea",
+"behavior": "other",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"coconut_piece": {
+"id": "coconut_piece",
+"name": "card_coconut_piece_name",
+"desc": "card_coconut_piece_description",
+"value": 1,
+"icon": "Idea",
+"behavior": "other",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"castle": {
+"id": "castle",
+"name": "card_castle_name",
+"desc": "card_castle_description",
+"value": 3,
+"icon": "Idea",
+"behavior": "other",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"compass": {
+"id": "compass",
+"name": "card_compass_name",
+"desc": "card_compass_description",
+"value": 1,
+"icon": "Idea",
+"behavior": "other",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"cooking": {
+"id": "cooking",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"idea": {
+"id": "idea",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"equipment": {
+"id": "equipment",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"combat_intro": {
+"id": "combat_intro",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"basic": {
+"id": "basic",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"locations": {
+"id": "locations",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"starter": {
+"id": "starter",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"structures": {
+"id": "structures",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"farming": {
+"id": "farming",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"idea2": {
+"id": "idea2",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"island1": {
+"id": "island1",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"island_cooking": {
+"id": "island_cooking",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"island2": {
+"id": "island2",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"island_advanced": {
+"id": "island_advanced",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"island_ideas_1": {
+"id": "island_ideas_1",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"island_locations": {
+"id": "island_locations",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"island_intro": {
+"id": "island_intro",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+},
+"island_ideas_2": {
+"id": "island_ideas_2",
+"name": "Booster Pack",
+"desc": "Tap to open",
+"value": 0,
+"icon": "Idea",
+"behavior": "display",
+"workers": 0,
+"educated": false,
+"recipes": [],
+"bag": null,
+"bagCount": 0,
+"special": null,
+"harvestTime": 10,
+"canDeplete": false,
+"depletedTime": 30,
+"amount": 3,
+"isUnlimited": false
+}
+}
