@@ -2,6 +2,8 @@ package com.gliffy.stacklands
 
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
@@ -33,8 +35,10 @@ data class PlacedCard(
     val statusTick: MutableMap<String, Double> = mutableMapOf(),
     var attackTimer: Double = 0.0,
     var stunTimer: Double = 0.0,
-    var poisonTicks: Int = 0,
 ) {
+    var poisonTicks by mutableStateOf(0)
+    var depletedUntil by mutableLongStateOf(0L)  // harvestable resting until this epoch ms
+    var faceUp by mutableStateOf(true)           // cards from packs start face-down; first tap flips
     val def: CardDef get() = GameData.cards[id] ?: GameData.fallback
     val isCombatable: Boolean get() = def.combat != null
     val team: String get() = def.team
@@ -50,6 +54,7 @@ class Engine {
     val selected = mutableStateOf<PlacedCard?>(null)       // card being dragged
     val dragPos = mutableStateOf(Offset.Zero)
     val message = mutableStateOf<String?>(null)
+    val inMenu = mutableStateOf(true)                      // main menu until Play is tapped
     var now = System.currentTimeMillis()
     val rng = Random(System.nanoTime())
     var cardsOpened = 0
@@ -61,6 +66,8 @@ class Engine {
     var monthTimer by mutableStateOf(0.0)
     var month by mutableStateOf(0)
 
+    var tickCount by mutableIntStateOf(0)   // bumped every engine tick so the canvas redraws (HP bars, statuses)
+
     fun cycleMoonLength() {
         moonLengthIndex = (moonLengthIndex + 1) % moonLengths.size
         // rescale the current progress so the moon doesn't jump
@@ -70,6 +77,12 @@ class Engine {
 
     val conflicts = mutableStateListOf<ConflictState>()
     private var nextConflictId = 1
+
+    // shop fixtures (BuyBoosterBox / SellBox in the original)
+    data class ShopBox(val boosterId: String, val label: String, val cost: Int, var stored: Int, val x: Float, val y: Float)
+    val boxes = mutableStateListOf<ShopBox>()
+    var sellBoxX = 0.06f
+    var sellBoxY = 0.90f
 
     val humanIds: Set<String> by lazy {
         GameData.cards.values.filter { it.behavior == "worker" }.map { it.id }.toSet()
@@ -87,19 +100,17 @@ class Engine {
     fun start() {
         stacks.clear()
         conflicts.clear()
+        boxes.clear()
         month = 0; monthTimer = 0.0
-        val starter = GameData.boosters["starter"] ?: return
-        // starter contents are guaranteed (each entry is a fixed card, not a roll)
-        val slots = starter.bags.flatMap { it.chances }
-        slots.forEachIndexed { j, ch ->
-            stacks.add(spawnInit(ch.card, 0.08f + (j % 4) * 0.24f, 0.18f + (j / 4) * 0.26f))
-        }
-        // booster packs on the board (tap to open) — like the in-game shop
-        val shop = listOf("basic", "farming", "cooking", "idea", "structures", "equipment")
-        shop.forEachIndexed { i, id ->
-            if (GameData.boosters.containsKey(id)) {
-                stacks.add(spawnInit(id, 0.12f + (i % 3) * 0.3f, 0.72f + (i / 3) * 0.16f))
-            }
+        // board starts with just the starter pack on it — tap it to open
+        stacks.add(spawnInit("starter", 0.42f, 0.38f))
+        // shop row (CreatePackLine): boxes accumulate gold, spawn packs when paid
+        val shop = listOf("basic" to 3, "idea" to 4, "combat_intro" to 3, "farming" to 10,
+            "cooking" to 10, "equipment" to 15, "structures" to 25, "locations" to 20)
+        shop.forEachIndexed { i, (id, cost) ->
+            if (GameData.boosters.containsKey(id))
+                boxes.add(ShopBox(id, id.replace('_', ' ').replaceFirstChar { it.uppercase() }, cost, 0,
+                    0.10f + (i % 4) * 0.22f, 0.62f + (i / 4) * 0.14f))
         }
     }
 
@@ -298,17 +309,29 @@ class Engine {
     }
 
     private fun matchMultiset(stackIds: List<String>, req: List<String>): Boolean {
+        // original StackMatchesSubprint: stack must CONTAIN every required card
+        // (the blueprint/idea root itself can satisfy a req; extras are fine)
         val pool = stackIds.toMutableList()
         for (r in req) {
             val it = pool.firstOrNull { matchesSpecialId(it, r) } ?: return false
             pool.remove(it)
         }
-        return pool.isEmpty()
+        return true
     }
 
     fun tick() {
         now = System.currentTimeMillis()
-        for (root in stacks.toList()) tickNode(root)
+        tickCount++
+        for (root in stacks.toList()) {
+            // depleted harvestables rest, then refill (StatusEffect_Depleted)
+            if (root.depletedUntil > now) continue
+            if (root.depletedUntil in 1..now) {
+                root.depletedUntil = 0
+                root.amountLeft = root.def.amount
+                recomputeTimer(root)
+            }
+            tickNode(root)
+        }
         tickCombat(0.25)
         // moon clock
         monthTimer += 0.25
@@ -343,11 +366,9 @@ class Engine {
         val rd = root.def
         if (root.recipeIndex >= 0) {
             val r = rd.recipes[root.recipeIndex]
-            // remove required cards (they're consumed)
-            val pool = root.children.toMutableList()
-            for (req in r.req) {
-                val it = pool.firstOrNull { matchesSpecialId(it.id, req) } ?: continue
-                pool.remove(it)
+            // consume exactly the cards in the recipe's remove list (workers/ideas stay on the stack)
+            for (rid in r.remove) {
+                val it = root.children.firstOrNull { matchesSpecialId(it.id, rid) } ?: continue
                 root.children.remove(it)
             }
             val result = spawn(r.result, root.x, root.y - 0.18f)
@@ -369,6 +390,12 @@ class Engine {
         if (rd.canDeplete) {
             if (root.amountLeft <= 0) root.amountLeft = rd.amount
             root.amountLeft--
+            if (root.amountLeft <= 0) {
+                // depleted: rest, then refill
+                root.depletedUntil = now + rd.depletedTime * 1000L
+                root.timerEnd = 0; root.timerAction = ""
+                return
+            }
         }
         val id = drawFromBag(rd.bag)
         if (id != null) {
@@ -401,11 +428,39 @@ class Engine {
         pack.bags.forEach { bag ->
             repeat(bag.cardsInPack) {
                 val id = drawFromBag(bag.chances) ?: return@repeat
-                spawn(id, node.x + (rng.nextFloat() - 0.5f) * 0.3f, node.y + (rng.nextFloat() - 0.5f) * 0.3f)
+                val c = spawn(id, node.x + (rng.nextFloat() - 0.5f) * 0.3f, node.y + (rng.nextFloat() - 0.5f) * 0.3f)
+                c?.faceUp = false   // cards from packs start face-down; tap to flip
             }
         }
         cardsOpened++
         message.value = "Booster opened!"
+    }
+
+    /** SellBox: drop a card, get gold (value in gold pieces). */
+    fun sellCard(node: PlacedCard, atX: Float, atY: Float) {
+        val value = max(1, node.def.value)
+        detach(node)
+        repeat(value) { spawn("gold", atX + (rng.nextFloat() - 0.5f) * 0.08f, atY + (rng.nextFloat() - 0.5f) * 0.08f) }
+        message.value = "Sold ${node.def.name}"
+    }
+
+    /** BuyBoosterBox: drop gold on a box; when enough is stored, it spawns the pack.
+     *  Returns true if the box consumed the card; false = caller puts the card back. */
+    fun dropOnBox(box: ShopBox, node: PlacedCard): Boolean {
+        if (node.id != "gold" && node.id != "gold_bar") return false
+        detach(node)
+        box.stored += max(1, node.def.value)
+        if (box.stored >= box.cost) {
+            box.stored = 0
+            val pack = spawn(box.boosterId, box.x, box.y - 0.2f)
+            if (pack != null) message.value = "${box.label} pack available!"
+        }
+        return true
+    }
+
+    /** Tap a face-down card to flip it up. */
+    fun flipCard(node: PlacedCard) {
+        if (!node.faceUp) node.faceUp = true
     }
 
     // drag & drop: detach node from its parent

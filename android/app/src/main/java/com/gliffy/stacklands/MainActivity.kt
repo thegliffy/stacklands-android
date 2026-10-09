@@ -6,9 +6,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.gestures.awaitEachGesture
+import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -18,6 +20,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -65,19 +68,56 @@ class SpriteCache {
     }
 }
 
+val labelPaint = android.graphics.Paint().apply {
+    color = android.graphics.Color.WHITE
+    textSize = 26f
+    isFakeBoldText = true
+    isAntiAlias = true
+}
+
+@Composable
+fun MainMenu(onPlay: () -> Unit) {
+    Box(Modifier.fillMaxSize().background(Color(0xFFEFE8D8)), contentAlignment = Alignment.Center) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text("Stacklands", fontSize = 42.sp, fontWeight = FontWeight.Bold, color = Color(0xFF3A3630))
+            Spacer(Modifier.height(8.dp))
+            Text("Android port (unofficial)", fontSize = 14.sp, color = Color(0xFF7A7466))
+            Spacer(Modifier.height(40.dp))
+            Box(
+                Modifier
+                    .background(Color(0xFF4CAF50), RoundedCornerShape(12.dp))
+                    .pointerInput(Unit) { detectTapGestures { onPlay() } }
+                    .padding(horizontal = 48.dp, vertical = 16.dp),
+            ) { Text("Play", fontSize = 22.sp, fontWeight = FontWeight.Bold, color = Color.White) }
+            Spacer(Modifier.height(16.dp))
+            Text("Open the starter pack to begin", fontSize = 13.sp, color = Color(0xFF7A7466))
+        }
+    }
+}
+
 @Composable
 fun App() {
     val context = LocalContext.current
     val sprites = remember { SpriteCache() }
     LaunchedEffect(Unit) { GameData.load(context.assets) }
     val engine = remember { Engine() }
-    LaunchedEffect(Unit) { if (GameData.cards.isNotEmpty() && engine.stacks.isEmpty()) engine.start() }
     LaunchedEffect(Unit) {
         while (true) { engine.tick(); delay(250) }
     }
     val selected by engine.selected
     val message by engine.message
+    val inMenu by engine.inMenu
     val dragPos by remember { engine.dragPos }
+    engine.tickCount   // read in composition so the canvas redraws when per-card state changes
+
+    // ---- main menu ----
+    if (inMenu) {
+        MainMenu(onPlay = {
+            if (GameData.cards.isNotEmpty()) engine.start()
+            engine.inMenu.value = false
+        })
+        return
+    }
 
     val cardW = 92.dp
     val cardH = 122.dp
@@ -111,58 +151,94 @@ fun App() {
             Modifier
                 .fillMaxSize()
                 .pointerInput(engine, GameData.cards.size) {
-                    var dragNode: PlacedCard? = null
-                    var dragPos = Offset.Zero
+                    val w = size.width.toFloat(); val h = size.height.toFloat()
+                    val cw = cardW.toPx(); val ch = cardH.toPx()
                     fun hitTest(pos: Offset): PlacedCard? {
-                        val w = size.width.toFloat(); val h = size.height.toFloat()
                         for (root in engine.stacks.reversed()) {
                             for (child in root.children.reversed()) {
-                                val cp = nodePos(root, child, w, h, cardW.toPx(), cardH.toPx())
-                                if (pos.x in cp.x..(cp.x + cardW.toPx() * 0.8f) && pos.y in cp.y..(cp.y + cardH.toPx() * 0.8f)) return child
+                                val cp = nodePos(root, child, w, h, cw, ch)
+                                if (pos.x in cp.x..(cp.x + cw * 0.8f) && pos.y in cp.y..(cp.y + ch * 0.8f)) return child
                             }
-                            val rp = Offset(root.x * size.width, root.y * size.height)
-                            if (pos.x in rp.x..(rp.x + cardW.toPx()) && pos.y in rp.y..(rp.y + cardH.toPx())) return root
+                            val rp = Offset(root.x * w, root.y * h)
+                            if (pos.x in rp.x..(rp.x + cw) && pos.y in rp.y..(rp.y + ch)) return root
                         }
                         return null
                     }
-                    detectDragGestures(
-                        onDragStart = { pos ->
-                            val node = hitTest(pos)
-                            if (node != null) {
-                                if (GameData.boosters.containsKey(node.id)) {
-                                    engine.openBooster(node)
-                                } else {
-                                    engine.detach(node)
-                                    dragNode = node
-                                    engine.selected.value = node
-                                    engine.dragPos.value = pos
+                    fun hitBox(pos: Offset): Engine.ShopBox? = engine.boxes.firstOrNull {
+                        val bp = Offset(it.x * w, it.y * h)
+                        pos.x in bp.x..(bp.x + cw) && pos.y in bp.y..(bp.y + ch * 0.7f)
+                    }
+                    fun hitSell(pos: Offset): Boolean {
+                        val bp = Offset(engine.sellBoxX * w, engine.sellBoxY * h)
+                        return pos.x in bp.x..(bp.x + cw) && pos.y in bp.y..(bp.y + ch * 0.7f)
+                    }
+                    awaitEachGesture {
+                        val down = awaitFirstDown(requireUnconsumed = false)
+                        var dragNode: PlacedCard? = null
+                        var moved = false
+                        var pos = down.position
+                        // wait a moment: if it lifts fast = tap, if it moves = drag
+                        while (true) {
+                            val event = awaitPointerEvent()
+                            val change = event.changes.firstOrNull() ?: break
+                            if (!change.pressed) {
+                                // released
+                                if (dragNode != null) {
+                                    val box = hitBox(pos); val sell = hitSell(pos); val target = hitTest(pos)
+                                    when {
+                                        box != null && engine.dropOnBox(box, dragNode) -> {}
+                                        sell -> engine.sellCard(dragNode, engine.sellBoxX, engine.sellBoxY)
+                                        target != null && target !== dragNode && engine.canDrop(target, dragNode) -> engine.dropOn(target, dragNode)
+                                        else -> {
+                                            dragNode.x = (pos.x / w).coerceIn(0.02f, 0.88f)
+                                            dragNode.y = (pos.y / h).coerceIn(0.10f, 0.86f)
+                                            engine.stacks.add(dragNode)
+                                        }
+                                    }
+                                    engine.selected.value = null
+                                } else if (!moved) {
+                                    // tap
+                                    val node = hitTest(pos)
+                                    if (node != null) {
+                                        if (GameData.boosters.containsKey(node.id)) engine.openBooster(node)
+                                        else engine.flipCard(node)
+                                    }
                                 }
+                                break
                             }
-                        },
-                        onDrag = { change, _ -> dragPos = change.position; engine.dragPos.value = change.position },
-                        onDragEnd = {
-                            val node = dragNode
-                            if (node != null) {
-                                val target = hitTest(dragPos)
-                                if (target != null && target !== node && engine.canDrop(target, node)) {
-                                    engine.dropOn(target, node)
-                                } else {
-                                    node.x = (dragPos.x / size.width).coerceIn(0.02f, 0.88f)
-                                    node.y = (dragPos.y / size.height).coerceIn(0.10f, 0.86f)
-                                    engine.stacks.add(node)
+                            pos = change.position
+                            if ((pos - down.position).getDistance() > 30f) {
+                                if (!moved && dragNode == null) {
+                                    moved = true
+                                    dragNode = hitTest(down.position)
+                                    if (dragNode != null) {
+                                        engine.detach(dragNode)
+                                        engine.selected.value = dragNode
+                                        engine.dragPos.value = pos
+                                    }
                                 }
+                                if (dragNode != null) engine.dragPos.value = pos
                             }
-                            dragNode = null
-                            engine.selected.value = null
-                        },
-                        onDragCancel = {
-                            dragNode?.let { engine.stacks.add(it) }
-                            dragNode = null
-                            engine.selected.value = null
-                        },
-                    )
+                        }
+                    }
                 }
         ) {
+            // sell box (bottom-left)
+            val sellPos = Offset(engine.sellBoxX * size.width, engine.sellBoxY * size.height)
+            val sellW = cardW.toPx(); val sellH = cardH.toPx() * 0.7f
+            drawRoundRect(Color(0xFF8C6239), sellPos, Size(sellW, sellH), CornerRadius(8f, 8f))
+            drawRoundRect(Color(0xFF5C4023), sellPos, Size(sellW, sellH), CornerRadius(8f, 8f), style = Stroke(width = 3f))
+            drawContext.canvas.nativeCanvas.drawText("SELL", sellPos.x + sellW * 0.28f, sellPos.y + sellH * 0.62f, labelPaint)
+            // shop boxes
+            for (box in engine.boxes) {
+                val cw = cardW.toPx(); val ch = cardH.toPx() * 0.7f
+                val pos = Offset(box.x * size.width, box.y * size.height)
+                drawRoundRect(Color(0xFF7A6FA8), pos, Size(cw, ch), CornerRadius(8f, 8f))
+                drawRoundRect(Color(0xFF4F4680), pos, Size(cw, ch), CornerRadius(8f, 8f), style = Stroke(width = 3f))
+                drawContext.canvas.nativeCanvas.drawText(box.label, pos.x + 8f, pos.y + ch * 0.42f, labelPaint)
+                drawContext.canvas.nativeCanvas.drawText("cost ${box.cost}${if (box.stored > 0) "  (${box.stored})" else ""}",
+                    pos.x + 8f, pos.y + ch * 0.78f, labelPaint)
+            }
             for (root in engine.stacks) {
                 drawCard(root, null, sprites, context.assets, cardW.toPx(), cardH.toPx(), false)
                 root.children.forEachIndexed { i, child ->
@@ -210,6 +286,13 @@ fun DrawScope.drawCard(
     val scale = if (child == null) 1f else (0.88f - childIndex * 0.02f).coerceAtLeast(0.6f)
     val w = cw * scale; val h = ch * scale
     val pos = nodePos(root, child, size.width, size.height, cw, ch)
+    // booster packs on the board: draw as a pack, not a card
+    if (GameData.boosters.containsKey(node.id)) {
+        drawRoundRect(Color(0xFF7A6FA8), pos, Size(w, h), CornerRadius(10f, 10f))
+        drawRoundRect(Color(0xFF4F4680), pos, Size(w, h), CornerRadius(10f, 10f), style = Stroke(width = 4f))
+        drawContext.canvas.nativeCanvas.drawText("PACK", pos.x + w * 0.28f, pos.y + h * 0.55f, labelPaint)
+        return
+    }
     val pal = PALETTES[node.def.behavior] ?: PALETTES["other"]!!
     drawRoundRect(pal.first, pos, Size(w, h), CornerRadius(10f, 10f))
     drawRoundRect(pal.second, pos, Size(w, h), CornerRadius(10f, 10f), style = Stroke(width = 3f))
@@ -217,6 +300,12 @@ fun DrawScope.drawCard(
     // in a conflict: red outline
     if (node.conflictId >= 0)
         drawRoundRect(Color(0xFFE53935), pos, Size(w, h), CornerRadius(10f, 10f), style = Stroke(width = 5f))
+    if (!node.faceUp) {
+        // face-down: card back, tap to flip
+        drawRoundRect(Color(0xFFE8DCC0), pos, Size(w, h), CornerRadius(10f, 10f))
+        drawRoundRect(Color(0xFFB8A878), pos, Size(w, h), CornerRadius(10f, 10f), style = Stroke(width = 3f))
+        return
+    }
     drawSprite(sprites.get(assets, node.def.icon), pos, w, h)
     // HP bar for damaged combatables
     val cb = node.def.combat
