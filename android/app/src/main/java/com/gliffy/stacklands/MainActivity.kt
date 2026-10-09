@@ -75,6 +75,34 @@ val labelPaint = android.graphics.Paint().apply {
     isAntiAlias = true
 }
 
+// card name text: black on the colored header band (real game style)
+val namePaint = android.graphics.Paint().apply {
+    color = android.graphics.Color.BLACK
+    textSize = 22f
+    isFakeBoldText = true
+    isAntiAlias = true
+}
+
+// light variant for dark header bands
+val lightNamePaint = android.graphics.Paint().apply {
+    color = android.graphics.Color.WHITE
+    textSize = 22f
+    isFakeBoldText = true
+    isAntiAlias = true
+}
+
+// black cost badge number: cream text
+val badgePaint = android.graphics.Paint().apply {
+    color = android.graphics.Color.parseColor("#FFF9E3")
+    textSize = 24f
+    isFakeBoldText = true
+    isAntiAlias = true
+    textAlign = android.graphics.Paint.Align.CENTER
+}
+
+fun darken(c: Color, f: Float): Color =
+    Color(android.graphics.Color.rgb((c.red*255*f).toInt(), (c.green*255*f).toInt(), (c.blue*255*f).toInt()))
+
 @Composable
 fun MainMenu(onPlay: () -> Unit) {
     Box(Modifier.fillMaxSize().background(Color(0xFFEFE8D8)), contentAlignment = Alignment.Center) {
@@ -122,9 +150,9 @@ fun App() {
     val cardW = 92.dp
     val cardH = 122.dp
 
-    Box(Modifier.fillMaxSize().background(Color(0xFFEFE8D8))) {
+    Box(Modifier.fillMaxSize().background(Color(0xFFB3E5B2))) {
         Row(Modifier.fillMaxWidth().padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
-            Text("Stacklands", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color(0xFF3A3630))
+            Text("Stacklands", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color(0xFF2A332A))
             Spacer(Modifier.weight(1f))
             // moon clock: tap to cycle moon length (Short 90s / Normal 120s / Long 200s)
             val moonFrac = (engine.monthTimer / engine.monthSeconds).coerceIn(0.0, 1.0)
@@ -223,18 +251,16 @@ fun App() {
                     }
                 }
         ) {
-            // sell box (bottom-left)
+            // sell box (bottom-left) — near-black like the real shop row
             val sellPos = Offset(engine.sellBoxX * size.width, engine.sellBoxY * size.height)
             val sellW = cardW.toPx(); val sellH = cardH.toPx() * 0.7f
-            drawRoundRect(Color(0xFF8C6239), sellPos, Size(sellW, sellH), CornerRadius(8f, 8f))
-            drawRoundRect(Color(0xFF5C4023), sellPos, Size(sellW, sellH), CornerRadius(8f, 8f), style = Stroke(width = 3f))
-            drawContext.canvas.nativeCanvas.drawText("SELL", sellPos.x + sellW * 0.28f, sellPos.y + sellH * 0.62f, labelPaint)
+            drawRoundRect(Color(0xFF1A1A1A), sellPos, Size(sellW, sellH), CornerRadius(8f, 8f))
+            drawContext.canvas.nativeCanvas.drawText("Sell", sellPos.x + sellW * 0.30f, sellPos.y + sellH * 0.62f, labelPaint)
             // shop boxes
             for (box in engine.boxes) {
                 val cw = cardW.toPx(); val ch = cardH.toPx() * 0.7f
                 val pos = Offset(box.x * size.width, box.y * size.height)
-                drawRoundRect(Color(0xFF7A6FA8), pos, Size(cw, ch), CornerRadius(8f, 8f))
-                drawRoundRect(Color(0xFF4F4680), pos, Size(cw, ch), CornerRadius(8f, 8f), style = Stroke(width = 3f))
+                drawRoundRect(Color(0xFF1A1A1A), pos, Size(cw, ch), CornerRadius(8f, 8f))
                 drawContext.canvas.nativeCanvas.drawText(box.label, pos.x + 8f, pos.y + ch * 0.42f, labelPaint)
                 drawContext.canvas.nativeCanvas.drawText("cost ${box.cost}${if (box.stored > 0) "  (${box.stored})" else ""}",
                     pos.x + 8f, pos.y + ch * 0.78f, labelPaint)
@@ -286,27 +312,42 @@ fun DrawScope.drawCard(
     val scale = if (child == null) 1f else (0.88f - childIndex * 0.02f).coerceAtLeast(0.6f)
     val w = cw * scale; val h = ch * scale
     val pos = nodePos(root, child, size.width, size.height, cw, ch)
-    // booster packs on the board: draw as a pack, not a card
+    // booster packs on the board: near-black box with white label (real game style)
     if (GameData.boosters.containsKey(node.id)) {
-        drawRoundRect(Color(0xFF7A6FA8), pos, Size(w, h), CornerRadius(10f, 10f))
-        drawRoundRect(Color(0xFF4F4680), pos, Size(w, h), CornerRadius(10f, 10f), style = Stroke(width = 4f))
+        drawRoundRect(Color(0xFF1A1A1A), pos, Size(w, h), CornerRadius(10f, 10f))
         drawContext.canvas.nativeCanvas.drawText("PACK", pos.x + w * 0.28f, pos.y + h * 0.55f, labelPaint)
         return
     }
     val pal = PALETTES[node.def.behavior] ?: PALETTES["other"]!!
     drawRoundRect(pal.first, pos, Size(w, h), CornerRadius(10f, 10f))
-    drawRoundRect(pal.second, pos, Size(w, h), CornerRadius(10f, 10f), style = Stroke(width = 3f))
+    if (!node.faceUp) {
+        // face-down: card back, tap to flip
+        drawRoundRect(Color(0xFFE8DCC0), pos, Size(w, h), CornerRadius(10f, 10f))
+        drawRoundRect(Color(0xFF1A1A1A), pos, Size(w, h), CornerRadius(10f, 10f), style = Stroke(width = 4f))
+        return
+    }
+    // name header band (darker shade of card color, black text) — real game style
+    val bandH = h * 0.16f
+    drawRoundRect(darken(pal.second, 0.92f), pos, Size(w, bandH), CornerRadius(10f, 10f))
+    drawRect(darken(pal.second, 0.92f), Offset(pos.x, pos.y + bandH / 2), Size(w, bandH / 2))
+    // dark bands (e.g. charcoal structure cards) need light text
+    val bandLum = 0.299*pal.second.red + 0.587*pal.second.green + 0.114*pal.second.blue
+    val np = if (bandLum < 0.45f) lightNamePaint else namePaint
+    drawContext.canvas.nativeCanvas.drawText(node.def.name, pos.x + 8f, pos.y + bandH * 0.78f, np)
+    drawSprite(sprites.get(assets, node.def.icon), pos, w, h)
+    // cost/value badge: black blob bottom-left
+    if (node.def.value > 0) {
+        drawContext.canvas.nativeCanvas.drawCircle(pos.x + 20f, pos.y + h - 20f, 16f, android.graphics.Paint().apply {
+            color = android.graphics.Color.BLACK; isAntiAlias = true
+        })
+        drawContext.canvas.nativeCanvas.drawText(node.def.value.toString(), pos.x + 20f, pos.y + h - 12f, badgePaint)
+    }
+    // thick black outline on top of everything
+    drawRoundRect(Color(0xFF1A1A1A), pos, Size(w, h), CornerRadius(10f, 10f), style = Stroke(width = 4f))
     if (selected) drawRoundRect(Color(0xFFFFC107), pos, Size(w, h), CornerRadius(10f, 10f), style = Stroke(width = 5f))
     // in a conflict: red outline
     if (node.conflictId >= 0)
         drawRoundRect(Color(0xFFE53935), pos, Size(w, h), CornerRadius(10f, 10f), style = Stroke(width = 5f))
-    if (!node.faceUp) {
-        // face-down: card back, tap to flip
-        drawRoundRect(Color(0xFFE8DCC0), pos, Size(w, h), CornerRadius(10f, 10f))
-        drawRoundRect(Color(0xFFB8A878), pos, Size(w, h), CornerRadius(10f, 10f), style = Stroke(width = 3f))
-        return
-    }
-    drawSprite(sprites.get(assets, node.def.icon), pos, w, h)
     // HP bar for damaged combatables
     val cb = node.def.combat
     if (cb != null && node.hp >= 0 && node.hp < cb.maxHealth) {
