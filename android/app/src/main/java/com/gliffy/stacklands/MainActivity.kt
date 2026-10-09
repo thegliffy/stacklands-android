@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -85,10 +86,13 @@ fun App() {
         Row(Modifier.fillMaxWidth().padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
             Text("Stacklands", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color(0xFF3A3630))
             Spacer(Modifier.weight(1f))
-            // moon clock: 🌑 progress through the current moon
+            // moon clock: tap to cycle moon length (Short 90s / Normal 120s / Long 200s)
             val moonFrac = (engine.monthTimer / engine.monthSeconds).coerceIn(0.0, 1.0)
-            Text("Moon ${engine.month} ${"█".repeat((moonFrac * 8).toInt())}${"░".repeat(8 - (moonFrac * 8).toInt())}",
-                fontSize = 13.sp, color = Color(0xFF7A7466))
+            Text("Moon ${engine.month} ${"█".repeat((moonFrac * 8).toInt())}${"░".repeat(8 - (moonFrac * 8).toInt())} ${engine.monthSeconds.toInt()}s ▾",
+                fontSize = 13.sp, color = Color(0xFF7A7466),
+                modifier = Modifier.pointerInput(Unit) {
+                    detectTapGestures { engine.cycleMoonLength() }
+                })
             Spacer(Modifier.weight(1f))
             Text("cards: ${engine.stacks.size}", fontSize = 13.sp, color = Color(0xFF7A7466))
         }

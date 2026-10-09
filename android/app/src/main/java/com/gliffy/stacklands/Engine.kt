@@ -2,6 +2,8 @@ package com.gliffy.stacklands
 
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
 import kotlin.math.ceil
 import kotlin.math.max
@@ -52,10 +54,19 @@ class Engine {
     val rng = Random(System.nanoTime())
     var cardsOpened = 0
 
-    // --- moon clock (WorldManager: MonthTime = 120 s normal) ---
-    val monthSeconds = 120.0
-    var monthTimer = 0.0
-    var month = 0
+    // --- moon clock (RunOptions.MoonLength: Short=90s, Normal=120s, Long=200s) ---
+    val moonLengths = listOf(90.0, 120.0, 200.0)
+    var moonLengthIndex by mutableStateOf(1)   // Normal default
+    val monthSeconds: Double get() = moonLengths[moonLengthIndex]
+    var monthTimer by mutableStateOf(0.0)
+    var month by mutableStateOf(0)
+
+    fun cycleMoonLength() {
+        moonLengthIndex = (moonLengthIndex + 1) % moonLengths.size
+        // rescale the current progress so the moon doesn't jump
+        monthTimer = monthTimer.coerceAtMost(monthSeconds)
+        message.value = "Moon length: ${moonLengths[moonLengthIndex].toInt()}s"
+    }
 
     val conflicts = mutableStateListOf<ConflictState>()
     private var nextConflictId = 1
