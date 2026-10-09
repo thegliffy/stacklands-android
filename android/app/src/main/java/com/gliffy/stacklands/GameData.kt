@@ -15,6 +15,27 @@ import kotlinx.serialization.json.longOrNull
 
 data class Recipe(val req: List<String>, val remove: List<String>, val result: String, val extra: List<String>, val time: Int)
 data class BagEntry(val card: String, val chance: Int)
+data class SpecialHitDef(val chance: Int, val type: Int, val target: Int)
+data class CombatDef(
+    val maxHealth: Int,
+    val attackSpeed: Double,
+    val hitChance: Double,
+    val attackDamage: Int,
+    val defence: Int,
+    val asInc: Int = 0,
+    val hcInc: Int = 0,
+    val adInc: Int = 0,
+    val defInc: Int = 0,
+    val specialHits: List<SpecialHitDef> = emptyList(),
+)
+data class EquipStats(
+    val maxHealth: Int = 0,
+    val asInc: Int = 0,
+    val hcInc: Int = 0,
+    val adInc: Int = 0,
+    val defInc: Int = 0,
+    val specialHits: List<SpecialHitDef> = emptyList(),
+)
 data class Special(
     val accept: List<String> = emptyList(),
     val need: Int = 0,
@@ -44,6 +65,19 @@ data class CardDef(
     val depletedTime: Int = 30,
     val amount: Int = 3,
     val isUnlimited: Boolean = false,
+    val combat: CombatDef? = null,
+    val foodValue: Int = 0,
+    val canSpoil: Boolean = false,
+    val equipType: Int = -1,
+    val attackType: Int = 0,
+    val equipStats: EquipStats? = null,
+    val possibleEquip: List<String> = emptyList(),
+    val drops: List<BagEntry> = emptyList(),
+    val team: String = "",
+    val isBreedable: Boolean = false,
+    val sickChance: Double = 0.0,
+    val canMakeSick: Boolean = false,
+    val cookedFood: Boolean = false,
 )
 data class BoosterBag(val cardsInPack: Int, val chances: List<BagEntry>)
 data class BoosterPack(val id: String, val bags: List<BoosterBag>, val cost: Int, val isIntro: Boolean)
@@ -67,6 +101,40 @@ object GameData {
     private fun JsonObject.bool(key: String): Boolean {
         val p = this[key] as? JsonPrimitive ?: return false
         return p.content.toBooleanStrictOrNull() ?: false
+    }
+    private fun JsonObject.dbl(key: String, dflt: Double): Double {
+        val p = this[key] as? JsonPrimitive ?: return dflt
+        return p.content.toDoubleOrNull() ?: dflt
+    }
+    private fun parseSpecialHits(el: List<JsonElement>): List<SpecialHitDef> = el.mapNotNull {
+        val o = it as? JsonObject ?: return@mapNotNull null
+        SpecialHitDef(o.int("chance", 0), o.int("type", 0), o.int("target", 1))
+    }
+    private fun parseCombat(o: JsonObject?): CombatDef? {
+        o ?: return null
+        return CombatDef(
+            maxHealth = o.int("maxHealth", 0),
+            attackSpeed = o.dbl("attackSpeed", 3.5),
+            hitChance = o.dbl("hitChance", 0.5),
+            attackDamage = o.int("attackDamage", 1),
+            defence = o.int("defence", 1),
+            asInc = o.int("asInc", 0),
+            hcInc = o.int("hcInc", 0),
+            adInc = o.int("adInc", 0),
+            defInc = o.int("defInc", 0),
+            specialHits = parseSpecialHits(o.arr("specialHits")),
+        )
+    }
+    private fun parseEquipStats(o: JsonObject?): EquipStats? {
+        o ?: return null
+        return EquipStats(
+            maxHealth = o.int("maxHealth", 0),
+            asInc = o.int("asInc", 0),
+            hcInc = o.int("hcInc", 0),
+            adInc = o.int("adInc", 0),
+            defInc = o.int("defInc", 0),
+            specialHits = parseSpecialHits(o.arr("specialHits")),
+        )
     }
 
     fun load(assets: AssetManager) {
@@ -120,6 +188,22 @@ object GameData {
                     depletedTime = o.int("depletedtime", 30),
                     amount = o.int("amount", 3),
                     isUnlimited = o.bool("isunlimited"),
+                    combat = parseCombat(o.obj("combat")),
+                    foodValue = o.int("foodValue", 0),
+                    canSpoil = o.bool("canSpoil"),
+                    equipType = o.int("equipType", -1),
+                    attackType = o.int("attackType", 0),
+                    equipStats = parseEquipStats(o.obj("equipStats")),
+                    possibleEquip = o.arr("possibleEquip").map { it.jsonPrimitive.content },
+                    drops = o.arr("drops").mapNotNull { b ->
+                        val bo = b as? JsonObject ?: return@mapNotNull null
+                        BagEntry(bo.str("card"), bo.int("chance", 1))
+                    },
+                    team = o.str("team"),
+                    isBreedable = o.bool("isBreedable"),
+                    sickChance = o.dbl("sickChance", 0.0),
+                    canMakeSick = o.bool("canMakeSick"),
+                    cookedFood = o.bool("cookedFood"),
                 )
             }
             val boostersJson = json.parseToJsonElement(assets.open("gamedata/boosters.json").reader().readText()) as JsonObject

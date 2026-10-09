@@ -85,6 +85,11 @@ fun App() {
         Row(Modifier.fillMaxWidth().padding(12.dp), verticalAlignment = Alignment.CenterVertically) {
             Text("Stacklands", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color(0xFF3A3630))
             Spacer(Modifier.weight(1f))
+            // moon clock: 🌑 progress through the current moon
+            val moonFrac = (engine.monthTimer / engine.monthSeconds).coerceIn(0.0, 1.0)
+            Text("Moon ${engine.month} ${"█".repeat((moonFrac * 8).toInt())}${"░".repeat(8 - (moonFrac * 8).toInt())}",
+                fontSize = 13.sp, color = Color(0xFF7A7466))
+            Spacer(Modifier.weight(1f))
             Text("cards: ${engine.stacks.size}", fontSize = 13.sp, color = Color(0xFF7A7466))
         }
         message?.let { m ->
@@ -205,7 +210,29 @@ fun DrawScope.drawCard(
     drawRoundRect(pal.first, pos, Size(w, h), CornerRadius(10f, 10f))
     drawRoundRect(pal.second, pos, Size(w, h), CornerRadius(10f, 10f), style = Stroke(width = 3f))
     if (selected) drawRoundRect(Color(0xFFFFC107), pos, Size(w, h), CornerRadius(10f, 10f), style = Stroke(width = 5f))
+    // in a conflict: red outline
+    if (node.conflictId >= 0)
+        drawRoundRect(Color(0xFFE53935), pos, Size(w, h), CornerRadius(10f, 10f), style = Stroke(width = 5f))
     drawSprite(sprites.get(assets, node.def.icon), pos, w, h)
+    // HP bar for damaged combatables
+    val cb = node.def.combat
+    if (cb != null && node.hp >= 0 && node.hp < cb.maxHealth) {
+        val frac = (node.hp.toFloat() / cb.maxHealth).coerceIn(0f, 1f)
+        drawRect(Color(0x66000000), Offset(pos.x + 6f, pos.y + h - 12f), Size(w - 12f, 6f))
+        drawRect(Color(0xFFE53935), Offset(pos.x + 6f, pos.y + h - 12f), Size((w - 12f) * frac, 6f))
+    }
+    // status dots (poison green, bleed red, sick yellow, stun white, frenzy orange, invuln blue, drunk purple, anxious grey)
+    if (node.statuses.isNotEmpty()) {
+        val colors = mapOf(
+            "poison" to Color(0xFF4CAF50), "bleeding" to Color(0xFFD32F2F), "sick" to Color(0xFFFFEB3B),
+            "stunned" to Color(0xFFFFFFFF), "frenzy" to Color(0xFFFF9800), "invulnerable" to Color(0xFF2196F3),
+            "drunk" to Color(0xFF9C27B0), "anxious" to Color(0xFF9E9E9E),
+        )
+        node.statuses.keys.toList().forEachIndexed { i, s ->
+            val c = colors[s] ?: return@forEachIndexed
+            drawCircle(c, radius = 7f, center = Offset(pos.x + 14f + i * 18f, pos.y + 12f))
+        }
+    }
 }
 
 fun DrawScope.drawSprite(bmp: ImageBitmap?, pos: Offset, w: Float, h: Float) {

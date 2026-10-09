@@ -3,7 +3,10 @@ package com.gliffy.stacklands
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.geometry.Offset
+import kotlin.math.ceil
 import kotlin.math.max
+import kotlin.math.min
+import kotlin.math.roundToInt
 import kotlin.random.Random
 
 data class PlacedCard(
@@ -16,8 +19,28 @@ data class PlacedCard(
     var recipeIndex: Int = -1,
     var amountLeft: Int = 0,          // for harvestables
     var isFoil: Boolean = false,
+    // --- parity state (PC-mechanics port) ---
+    var hp: Int = -1,                 // runtime HP for combatables (-1 = not a combatant)
+    var age: Int = -1,                // villager age in moons (-1 = doesn't age)
+    var foodValue: Int = -1,          // runtime food value (-1 = not food)
+    var spoilSeconds: Double = -1.0,  // time alive as food, for spoiling
+    var creationMonth: Int = 0,
+    var conflictId: Int = -1,
+    var equip: MutableList<PlacedCard> = mutableListOf(),   // equipables attached
+    val statuses: MutableMap<String, Double> = mutableMapOf(), // statusId -> seconds elapsed
+    val statusTick: MutableMap<String, Double> = mutableMapOf(),
+    var attackTimer: Double = 0.0,
+    var stunTimer: Double = 0.0,
+    var poisonTicks: Int = 0,
 ) {
     val def: CardDef get() = GameData.cards[id] ?: GameData.fallback
+    val isCombatable: Boolean get() = def.combat != null
+    val team: String get() = def.team
+}
+
+class ConflictState(val id: Int) {
+    val participants = mutableListOf<PlacedCard>()
+    var timeSinceLastAttack: Double = 1.0
 }
 
 class Engine {
@@ -28,6 +51,14 @@ class Engine {
     var now = System.currentTimeMillis()
     val rng = Random(System.nanoTime())
     var cardsOpened = 0
+
+    // --- moon clock (WorldManager: MonthTime = 120 s normal) ---
+    val monthSeconds = 120.0
+    var monthTimer = 0.0
+    var month = 0
+
+    val conflicts = mutableStateListOf<ConflictState>()
+    private var nextConflictId = 1
 
     val humanIds: Set<String> by lazy {
         GameData.cards.values.filter { it.behavior == "worker" }.map { it.id }.toSet()
@@ -44,19 +75,36 @@ class Engine {
 
     fun start() {
         stacks.clear()
+        conflicts.clear()
+        month = 0; monthTimer = 0.0
         val starter = GameData.boosters["starter"] ?: return
         // starter contents are guaranteed (each entry is a fixed card, not a roll)
         val slots = starter.bags.flatMap { it.chances }
         slots.forEachIndexed { j, ch ->
-            stacks.add(PlacedCard(ch.card, 0.08f + (j % 4) * 0.24f, 0.18f + (j / 4) * 0.26f))
+            stacks.add(spawnInit(ch.card, 0.08f + (j % 4) * 0.24f, 0.18f + (j / 4) * 0.26f))
         }
         // booster packs on the board (tap to open) — like the in-game shop
         val shop = listOf("basic", "farming", "cooking", "idea", "structures", "equipment")
         shop.forEachIndexed { i, id ->
             if (GameData.boosters.containsKey(id)) {
-                stacks.add(PlacedCard(id, 0.12f + (i % 3) * 0.3f, 0.72f + (i / 3) * 0.16f))
+                stacks.add(spawnInit(id, 0.12f + (i % 3) * 0.3f, 0.72f + (i / 3) * 0.16f))
             }
         }
+    }
+
+    private fun spawnInit(id: String, x: Float, y: Float): PlacedCard {
+        val c = PlacedCard(id, x, y)
+        initRuntime(c)
+        return c
+    }
+
+    /** Initialize parity runtime state for a freshly spawned card. */
+    private fun initRuntime(c: PlacedCard) {
+        val d = c.def
+        c.creationMonth = month
+        if (d.combat != null) c.hp = d.combat.maxHealth
+        if (d.id == "villager") c.age = 2            // BaseVillager prefab Age=2 (Adult)
+        if (d.foodValue > 0) { c.foodValue = d.foodValue; c.spoilSeconds = 0.0 }
     }
 
     // viewport hit test in normalized coords; cw/ch in px
@@ -94,6 +142,15 @@ class Engine {
     fun canDrop(root: PlacedCard, child: PlacedCard): Boolean {
         if (root.children.size >= 30) return false
         val rd = root.def; val cd = child.def
+        // combatable stacks: equipables + same-team combatables + opposing team (starts conflict)
+        if (rd.combat != null) {
+            if (cd.equipType >= 0) return true
+            if (cd.combat != null) return true   // same team stacks, opposing team starts conflict
+            if (cd.behavior == "food") return true // CanBePlacedOnVillager foods (approximate)
+            return false
+        }
+        // equipable on equipable? no.
+        if (cd.equipType >= 0 && rd.combat == null) return false
         // blueprint accepts its recipe cards
         if (rd.recipes.isNotEmpty()) {
             return rd.recipes.any { r -> r.req.any { matchesSpecialId(cd.id, it) } }
@@ -123,10 +180,42 @@ class Engine {
 
     fun dropOn(root: PlacedCard, child: PlacedCard): Boolean {
         if (!canDrop(root, child)) return false
+        // equipable onto combatable -> attach as equipment, apply increments
+        if (root.isCombatable && child.def.equipType >= 0) {
+            root.equip.add(child)
+            child.conflictId = root.conflictId
+            val es = child.def.equipStats
+            if (root.hp >= 0 && es != null && es.maxHealth > 0) root.hp += es.maxHealth   // equipping caps current HP at new max
+            recomputeTimer(root)
+            return true
+        }
         root.children.add(child)
+        // opposing combatables in a stack start a conflict
+        if (root.isCombatable && child.isCombatable && root.team != child.team) {
+            startConflict(root)
+        }
         recomputeTimer(root)
         return true
     }
+
+    private fun startConflict(root: PlacedCard) {
+        if (root.conflictId >= 0) return
+        val c = ConflictState(nextConflictId++)
+        conflicts.add(c)
+        // all combatables in the stack join
+        (listOf(root) + root.children).forEach { if (it.isCombatable) joinConflict(c, it) }
+    }
+
+    private fun joinConflict(c: ConflictState, card: PlacedCard) {
+        if (card.conflictId >= 0) return
+        card.conflictId = c.id
+        card.hp = card.def.combat!!.maxHealth
+        card.attackTimer = 0.0
+        c.participants.add(card)
+    }
+
+    private fun conflictOf(card: PlacedCard): ConflictState? =
+        conflicts.firstOrNull { it.id == card.conflictId }
 
     fun recomputeTimer(root: PlacedCard) {
         root.timerEnd = 0; root.timerAction = ""; root.recipeIndex = -1
@@ -138,7 +227,7 @@ class Engine {
                 if (matchMultiset(stackIds, r.req)) {
                     root.recipeIndex = idx
                     root.timerAction = "recipe"
-                    root.timerEnd = now + r.time * 1000L
+                    root.timerEnd = now + (r.time * actionTimeMultiplier(root) * 1000L).toLong()
                 }
             }
             if (root.timerEnd > 0) return
@@ -150,7 +239,7 @@ class Engine {
                 val left = if (rd.canDeplete) (if (root.amountLeft == 0) rd.amount else root.amountLeft) else Int.MAX_VALUE
                 if (left > 0) {
                     root.timerAction = "harvest"
-                    root.timerEnd = now + rd.harvestTime * 1000L
+                    root.timerEnd = now + (rd.harvestTime * actionTimeMultiplier(root) * 1000L).toLong()
                     if (root.amountLeft == 0) root.amountLeft = rd.amount
                 }
                 return
@@ -168,7 +257,7 @@ class Engine {
                 if (have >= max(1, sp.need)) {
                     root.timerAction = "recipe"
                     root.recipeIndex = -2 // hardcoded
-                    root.timerEnd = now + sp.time * 1000L
+                    root.timerEnd = now + (sp.time * actionTimeMultiplier(root) * 1000L).toLong()
                     return
                 }
             }
@@ -178,7 +267,7 @@ class Engine {
                 val feed = root.children.firstOrNull { it.id == sp.feed }
                 if (animal != null && feed != null) {
                     root.timerAction = "recipe"; root.recipeIndex = -2
-                    root.timerEnd = now + sp.time * 1000L
+                    root.timerEnd = now + (sp.time * actionTimeMultiplier(root) * 1000L).toLong()
                     return
                 }
             }
@@ -189,6 +278,12 @@ class Engine {
         if (rd.id == "market" && root.children.isNotEmpty()) {
             root.timerAction = "sell"; root.timerEnd = now + 60_000L
         }
+    }
+
+    /** Anxious villagers make actions take 2.5x as long (StatusEffect_Anxious). */
+    private fun actionTimeMultiplier(root: PlacedCard): Double {
+        val anxious = (listOf(root) + root.children).any { it.statuses.containsKey("anxious") }
+        return if (anxious) 2.5 else 1.0
     }
 
     private fun matchMultiset(stackIds: List<String>, req: List<String>): Boolean {
@@ -203,6 +298,13 @@ class Engine {
     fun tick() {
         now = System.currentTimeMillis()
         for (root in stacks.toList()) tickNode(root)
+        tickCombat(0.25)
+        // moon clock
+        monthTimer += 0.25
+        if (monthTimer >= monthSeconds) {
+            monthTimer -= monthSeconds
+            endOfMonth()
+        }
     }
 
     private fun tickNode(node: PlacedCard) {
@@ -221,6 +323,7 @@ class Engine {
     private fun spawn(id: String, x: Float, y: Float): PlacedCard? {
         val def = GameData.cards[id] ?: return null
         val c = PlacedCard(id, x, y)
+        initRuntime(c)
         stacks.add(c)
         return c
     }
@@ -297,8 +400,351 @@ class Engine {
     // drag & drop: detach node from its parent
     fun detach(node: PlacedCard) {
         for (s in stacks) {
-            if (s === node) { stacks.remove(node); return }
+            if (s === node) {
+                stacks.remove(node)
+                // pulling a participant out of a conflict leaves the conflict
+                if (node.conflictId >= 0) {
+                    conflictOf(node)?.participants?.remove(node)
+                    node.conflictId = -1
+                }
+                return
+            }
             if (node in s.children) { s.children.remove(node); recomputeTimer(s); return }
+        }
+    }
+
+    // ===================== COMBAT =====================
+    // All rules verified against decompiled Combatable.cs / Conflict.cs / CombatStats.cs.
+
+    private data class EffStats(
+        val maxHealth: Int, val attackSpeed: Double, val hitChance: Double,
+        val attackDamage: Int, val defence: Int, val attackType: Int,
+        val specialHits: List<SpecialHitDef>,
+    )
+
+    private fun processedStats(c: PlacedCard): EffStats {
+        val b = c.def.combat!!
+        var as_ = b.attackSpeed; var hc = b.hitChance; var ad = b.attackDamage; var df = b.defence; var mh = b.maxHealth
+        var at = 1 // Melee default when combatable
+        val specials = b.specialHits.toMutableList()
+        for (e in c.equip) {
+            val es = e.def.equipStats ?: continue
+            as_ = (as_ - es.asInc * 0.6).coerceIn(0.5, 3.5)
+            hc = (hc + es.hcInc * 0.09).coerceIn(0.5, 0.95)
+            ad += es.adInc
+            df += es.defInc
+            mh += es.maxHealth
+            specials.addAll(es.specialHits)
+            if (e.def.attackType > 0) at = e.def.attackType
+        }
+        if (c.statuses.containsKey("frenzy")) as_ = (as_ - 0.6).coerceIn(0.5, 3.5)
+        return EffStats(mh, as_, hc, ad, df, at, specials)
+    }
+
+    // rock-paper-scissors: melee > magic > ranged > melee (IsVeryEffective)
+    private fun isVeryEffective(self: Int, target: Int): Boolean =
+        (self == 1 && target == 3) || (self == 3 && target == 2) || (self == 2 && target == 1)
+
+    private fun damageMultiplier(c: PlacedCard): Double = if (c.statuses.containsKey("drunk")) 2.0 else 1.0
+    private fun hitChanceOf(c: PlacedCard): Double {
+        var hc = processedStats(c).hitChance
+        if (c.statuses.containsKey("drunk")) hc *= 0.6
+        return hc
+    }
+
+    private fun getDamage(attacker: PlacedCard, target: PlacedCard): Int {
+        val a = processedStats(attacker); val t = processedStats(target)
+        if (target.statuses.containsKey("invulnerable")) return 0
+        var dmg = a.attackDamage
+        if (rng.nextDouble() < 0.5) dmg += 1                       // 50% +1 roll
+        dmg -= ceil(t.defence * 0.5).toInt()
+        dmg = (dmg * (if (isVeryEffective(a.attackType, t.attackType)) 1.4 else 1.0) * damageMultiplier(attacker)).roundToInt()
+        if (dmg > 0) return dmg
+        return rng.nextInt(2)                                      // fully blocked: 50% chance of 1
+    }
+
+    private fun pickSpecialHit(c: PlacedCard): SpecialHitDef? {
+        val specials = processedStats(c).specialHits
+        if (specials.isEmpty()) return null
+        // WeightedRandomBag over chance out of 100; remainder = plain hit
+        var r = rng.nextDouble() * 100.0
+        for (s in specials) {
+            if (r < s.chance) return s
+            r -= s.chance
+        }
+        return null
+    }
+
+    private fun teamOf(c: PlacedCard) = if (c.team == "enemy") "enemy" else "player"
+
+    private fun teammates(conflict: ConflictState, team: String) =
+        conflict.participants.filter { teamOf(it) == team }
+
+    /** Conflict.GetTarget: proportional range; player team 50% picks lowest-HP in range. */
+    private fun getTarget(conflict: ConflictState, attacker: PlacedCard): PlacedCard? {
+        val myTeam = teamOf(attacker)
+        val foeTeam = if (myTeam == "player") "enemy" else "player"
+        val mine = teammates(conflict, myTeam)
+        val foes = teammates(conflict, foeTeam)
+        if (foes.isEmpty()) return null
+        val i = mine.indexOf(attacker)
+        val ratio = foes.size.toDouble() / mine.size
+        val minI = floor0(i * ratio)
+        val maxI = ceil0((i + 1) * ratio)
+        val range = foes.filterIndexed { idx, _ -> idx >= minI && idx < maxI }.ifEmpty { foes }
+        return if (myTeam == "player" && rng.nextDouble() < 0.5) range.minByOrNull { it.hp } else range[rng.nextInt(range.size)]
+    }
+
+    private fun floor0(v: Double) = kotlin.math.floor(v).toInt()
+    private fun ceil0(v: Double) = kotlin.math.ceil(v).toInt()
+
+    private fun tickCombat(dt: Double) {
+        for (conflict in conflicts.toList()) {
+            conflict.timeSinceLastAttack += dt
+            val players = teammates(conflict, "player")
+            val enemies = teammates(conflict, "enemy")
+            if (players.isEmpty() || enemies.isEmpty()) {
+                if (conflict.participants.isEmpty()) conflicts.remove(conflict)
+                else if (players.isEmpty() || enemies.isEmpty()) {
+                    // one side gone: conflict ends, survivors stay put
+                    conflict.participants.forEach { it.conflictId = -1 }
+                    conflicts.remove(conflict)
+                }
+                continue
+            }
+            for (attacker in conflict.participants.toList()) {
+                if (attacker.stunTimer > 0) { attacker.stunTimer -= dt; continue }
+                if (conflict.timeSinceLastAttack <= 0.3) continue   // global 0.3s attack gate
+                if (attacker.attackTimer < processedStats(attacker).attackSpeed) continue
+                attacker.attackTimer = 0.0
+                conflict.timeSinceLastAttack = 0.0
+                performAttack(conflict, attacker)
+                if (conflict.participants.isEmpty()) break
+            }
+        }
+        // standalone status ticks (bleed/poison/sick on cards not in a conflict)
+        for (root in stacks.toList()) tickStatuses(root, dt)
+    }
+
+    private fun performAttack(conflict: ConflictState, attacker: PlacedCard) {
+        val target = getTarget(conflict, attacker) ?: return
+        if (rng.nextDouble() > hitChanceOf(attacker)) return        // miss
+        val dmg = getDamage(attacker, target).coerceIn(0, 100)
+        val special = pickSpecialHit(attacker)
+        if (special == null) {
+            applyDamage(attacker, target, dmg)
+            return
+        }
+        // PerformSpecialHit: effect on the chosen target set, then damage on enemy-side targets
+        // (Self counts for damage only for Crit/Stun/Bleeding; HealLowest never damages)
+        val myTeam = teamOf(attacker)
+        val foeTeam = if (myTeam == "player") "enemy" else "player"
+        val targets: List<PlacedCard> = when (special.target) {
+            0 -> listOf(attacker)                                   // Self
+            1 -> listOf(target)                                     // Target
+            2 -> teammates(conflict, myTeam).shuffled(rng).take(1)  // RandomFriendly
+            3 -> teammates(conflict, foeTeam).shuffled(rng).take(1) // RandomEnemy
+            4 -> teammates(conflict, myTeam)                        // AllFriendly
+            5 -> teammates(conflict, foeTeam)                       // AllEnemy
+            else -> listOf(target)
+        }
+        val dmgFlagBase = special.target in setOf(1, 3, 5)
+        for (t in targets) {
+            val dmgFlag = dmgFlagBase || (special.target == 0 && special.type in setOf(10, 2, 6)) // Self+Crit/Stun/Bleeding
+            val d = if (special.type == 10) dmg * 2 else dmg        // Crit doubles
+            when (special.type) {
+                1 -> if (!t.statuses.containsKey("poison")) addStatus(t, "poison")
+                2 -> { t.statuses.remove("stunned"); addStatus(t, "stunned") }
+                3, 4 -> heal(t, 2)                                  // Heal / HealLowest
+                5 -> heal(attacker, d)                               // LifeSteal heals attacker
+                6 -> if (!t.statuses.containsKey("bleeding")) addStatus(t, "bleeding")
+                7 -> { t.statuses.remove("frenzy"); addStatus(t, "frenzy") }
+                11 -> addStatus(t, "sick")                           // plague_mask block not modeled (no plague_mask card in data)
+                12 -> if (!t.statuses.containsKey("anxious")) addStatus(t, "anxious")
+                9 -> if (!t.statuses.containsKey("invulnerable")) addStatus(t, "invulnerable")
+            }
+            if (dmgFlag) applyDamage(attacker, t, d)
+        }
+    }
+
+    private fun addStatus(c: PlacedCard, id: String) {
+        c.statuses[id] = 0.0     // re-applying resets the timer
+        c.statusTick[id] = 0.0
+    }
+
+    private fun heal(c: PlacedCard, amount: Int) {
+        val max = processedStats(c).maxHealth
+        c.hp = min(max, c.hp + amount)
+    }
+
+    private fun applyDamage(attacker: PlacedCard, target: PlacedCard, dmg: Int) {
+        if (dmg <= 0) return
+        target.hp -= dmg
+        target.stunTimer = 0.05          // can't attack for 0.05s after taking damage
+        if (target.hp <= 0) {
+            target.hp = 0
+            onDeath(target)
+        }
+    }
+
+    private fun onDeath(c: PlacedCard) {
+        conflictOf(c)?.participants?.remove(c)
+        c.conflictId = -1
+        // drops: draw one card from the drop bag (WeightedRandomBag in the original)
+        val dropId = if (c.def.drops.isNotEmpty()) drawFromBag(c.def.drops) else null
+        // remove card from board
+        detach(c)
+        if (dropId != null) spawn(dropId, c.x, c.y)
+        if (c.id == "villager") {
+            spawn("corpse", c.x, c.y)
+            message.value = "${c.def.name} died!"
+        }
+    }
+
+    private fun tickStatuses(c: PlacedCard, dt: Double) {
+        if (c.hp >= 0) {
+            // bleeding: 1 dmg every 2s for 10s
+            c.statuses["bleeding"]?.let { t ->
+                c.statuses["bleeding"] = t + dt
+                val tk = (c.statusTick.getOrPut("bleeding") { 0.0 }) + dt
+                c.statusTick["bleeding"] = tk
+                if (tk >= 2.0) { c.statusTick["bleeding"] = 0.0; applyDamage(c, c, 1) }
+                if (c.statuses["bleeding"]!! >= 10.0) c.statuses.remove("bleeding")
+            }
+            // poison: 3 dmg every 60s (30s on enemies, max 3 ticks)
+            c.statuses["poison"]?.let { t ->
+                val isEnemy = teamOf(c) == "enemy"
+                val period = if (isEnemy) 30.0 else 60.0
+                val tk = (c.statusTick.getOrPut("poison") { 0.0 }) + dt
+                c.statusTick["poison"] = tk
+                if (tk >= period) {
+                    c.statusTick["poison"] = 0.0
+                    c.poisonTicks++
+                    applyDamage(c, c, 3)
+                    if (isEnemy && c.poisonTicks >= 3) c.statuses.remove("poison")
+                }
+            }
+            // sick: 2 dmg every 30s until dead
+            c.statuses["sick"]?.let { t ->
+                val tk = (c.statusTick.getOrPut("sick") { 0.0 }) + dt
+                c.statusTick["sick"] = tk
+                if (tk >= 30.0) { c.statusTick["sick"] = 0.0; applyDamage(c, c, 2) }
+            }
+            // stun blocks attacks for 5s
+            c.statuses["stunned"]?.let { t ->
+                c.statuses["stunned"] = t + dt
+                if (c.statuses["stunned"]!! >= 5.0) c.statuses.remove("stunned")
+            }
+            // frenzy: +1 attack speed level for 10s
+            c.statuses["frenzy"]?.let { t ->
+                c.statuses["frenzy"] = t + dt
+                if (c.statuses["frenzy"]!! >= 10.0) c.statuses.remove("frenzy")
+            }
+            // invulnerable: 5s
+            c.statuses["invulnerable"]?.let { t ->
+                c.statuses["invulnerable"] = t + dt
+                if (c.statuses["invulnerable"]!! >= 5.0) c.statuses.remove("invulnerable")
+            }
+            // drunk/anxious: last a moon
+            for (id in listOf("drunk", "anxious")) {
+                c.statuses[id]?.let { t ->
+                    c.statuses[id] = t + dt
+                    if (c.statuses[id]!! >= monthSeconds) c.statuses.remove(id)
+                }
+            }
+        }
+        c.children.forEach { tickStatuses(it, dt) }
+    }
+
+    // ===================== END OF MONTH =====================
+    // WorldManager.EndOfMonth: feed villagers -> age -> sick check -> demands.
+
+    private fun allCards(): List<PlacedCard> = stacks.flatMap { listOf(it) + it.children + it.equip }
+
+    private fun endOfMonth() {
+        month++
+        feedVillagers()
+        ageVillagers()
+        spoilFood()
+        sickCheck()
+        message.value = "Moon $month"
+    }
+
+    /** BaseVillager.GetRequiredFoodCount: villagers 2, dog 1, trained monkey 0. */
+    private fun feedVillagers() {
+        val eaters = allCards().filter { it.def.id == "villager" || it.def.id == "dog" || it.def.id == "trained_monkey" }
+        val pool = allCards().filter { it.foodValue > 0 }.toMutableList()
+        for (eater in eaters) {
+            var need = when (eater.def.id) {
+                "dog" -> 1
+                "trained_monkey" -> 0
+                else -> 2
+            }
+            while (need > 0) {
+                val food = pool.firstOrNull { it.foodValue > 0 } ?: break
+                val take = min(need, food.foodValue)
+                food.foodValue -= take
+                need -= take
+                if (food.foodValue <= 0) {
+                    // food fully consumed -> becomes goop (StatusEffect_Spoiling rule)
+                    pool.remove(food)
+                    detach(food)
+                    spawn("goop", food.x, food.y)
+                }
+            }
+            if (need > 0) {
+                // starved
+                detach(eater)
+                spawn("corpse", eater.x, eater.y)
+                message.value = "Someone starved!"
+            }
+        }
+    }
+
+    /** DetermineLifeStageFromAge: <2 teen, 2-6 adult, 7-8 elderly, >=9 dead. */
+    private fun ageVillagers() {
+        for (c in allCards().filter { it.age >= 0 }.toList()) {
+            c.age++
+            if (c.age >= 9) {
+                detach(c)
+                spawn("corpse", c.x, c.y)
+                message.value = "A villager died of old age"
+            }
+        }
+        // animals: old >= 3 moons, die >= 5 (WorldManager EndOfMonth)
+        for (c in allCards().filter { it.def.behavior == "animal" }.toList()) {
+            if (month - c.creationMonth >= 5) {
+                detach(c)
+                message.value = "An animal died of old age"
+            }
+        }
+    }
+
+    /** Food spoils after 1 moon (2 if cooked); spoiling food loses 2 value per moon -> goop. */
+    private fun spoilFood() {
+        for (c in allCards().filter { it.spoilSeconds >= 0 }.toList()) {
+            c.spoilSeconds += monthSeconds
+            val limit = if (c.def.cookedFood) monthSeconds * 2 else monthSeconds
+            if (c.spoilSeconds >= limit) {
+                c.foodValue -= 2
+                if (c.foodValue <= 0) {
+                    detach(c)
+                    spawn("goop", c.x, c.y)
+                }
+            }
+        }
+    }
+
+    /** Poop cards roll SickChance% per moon to sicken a random villager. */
+    private fun sickCheck() {
+        val victims = allCards().filter { it.def.id == "villager" }.toMutableList()
+        for (c in allCards().filter { it.def.canMakeSick && it.def.sickChance > 0 }) {
+            if (victims.isEmpty()) break
+            if (rng.nextDouble() * 100.0 < c.def.sickChance) {
+                val v = victims[rng.nextInt(victims.size)]
+                addStatus(v, "sick")
+                message.value = "Someone got sick!"
+            }
         }
     }
 }
