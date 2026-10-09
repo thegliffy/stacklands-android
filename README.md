@@ -4,14 +4,21 @@ An Android port of [Stacklands](https://store.steampowered.com/app/1959500/Stack
 
 **This is a fan port, not affiliated with Sokpop.** Game assets (sprites, card data, localization) belong to Sokpop.
 
-## What works (v0.1)
+## What works (v0.2)
 
 - ✅ Full card database extracted from the game: **389 cards** with real recipes, harvest bags, and drop chances
 - ✅ Original sprites (254) + original card colors from the game's ColorManager
 - ✅ Drag & drop stacking, blueprint builds, harvest-on-timer, booster packs (tap to open)
 - ✅ Starter deal + shop row of booster packs
 - ✅ Kid → villager growth, house breeding
-- ❌ Not yet: combat, energy, pollution/wellbeing, saves, DLC cards (not present in source install)
+- ✅ **v0.2 — PC-mechanics parity** (rules verified against the decompile, see `docs/combat-spec.md`):
+  - Moon clock (120 s): villagers eat 2 food/moon (dogs 1), food spoils after 1 moon (cooked 2), spoiled food loses value → goop, starvation kills
+  - Villager aging (adult → elderly at 7 moons → dead at 9), animals die of old age at 5 moons
+  - Combat: drag an enemy onto your villagers (or vice versa) to start a conflict — full hit/damage/block math, melee>magic>ranged>melee triangle, crits, special hits (poison, stun, bleed, frenzy, lifesteal, invulnerable, sick, anxious)
+  - Status effects tick like the original (bleed 1/2s, poison 3/60s, sick 2/30s, stun 5s, frenzy, drunk, anxious)
+  - Equipment: drop equipables on villagers/units to equip (stat increments applied)
+  - Enemies drop their loot bags on death; HP bars + status dots on cards
+- ❌ Not yet: energy/pollution/wellbeing (Cities DLC), saves, quests/pack unlocks, multiple boards
 
 ## Try it
 
