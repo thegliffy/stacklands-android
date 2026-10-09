@@ -81,8 +81,8 @@ class Engine {
     // shop fixtures (BuyBoosterBox / SellBox in the original)
     data class ShopBox(val boosterId: String, val label: String, val cost: Int, var stored: Int, val x: Float, val y: Float)
     val boxes = mutableStateListOf<ShopBox>()
-    var sellBoxX = 0.06f
-    var sellBoxY = 0.90f
+    var sellBoxX = 0.015f
+    var sellBoxY = 0.16f
 
     val humanIds: Set<String> by lazy {
         GameData.cards.values.filter { it.behavior == "worker" }.map { it.id }.toSet()
@@ -103,14 +103,14 @@ class Engine {
         boxes.clear()
         month = 0; monthTimer = 0.0
         // board starts with just the starter pack on it — tap it to open
-        stacks.add(spawnInit("starter", 0.42f, 0.38f))
-        // shop row (CreatePackLine): boxes accumulate gold, spawn packs when paid
+        stacks.add(spawnInit("starter", 0.42f, 0.48f))
+        // shop row along the top (CreatePackLine): sell box first, then boxes; they accumulate gold, spawn packs when paid
         val shop = listOf("basic" to 3, "idea" to 4, "combat_intro" to 3, "farming" to 10,
             "cooking" to 10, "equipment" to 15, "structures" to 25, "locations" to 20)
         shop.forEachIndexed { i, (id, cost) ->
             if (GameData.boosters.containsKey(id))
                 boxes.add(ShopBox(id, id.replace('_', ' ').replaceFirstChar { it.uppercase() }, cost, 0,
-                    0.10f + (i % 4) * 0.22f, 0.62f + (i / 4) * 0.14f))
+                    0.015f + (i + 1) * 0.111f, 0.16f))
         }
     }
 

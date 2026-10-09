@@ -181,6 +181,7 @@ fun App() {
                 .pointerInput(engine, GameData.cards.size) {
                     val w = size.width.toFloat(); val h = size.height.toFloat()
                     val cw = cardW.toPx(); val ch = cardH.toPx()
+                    val shopWpx = 72.dp.toPx()
                     fun hitTest(pos: Offset): PlacedCard? {
                         for (root in engine.stacks.reversed()) {
                             for (child in root.children.reversed()) {
@@ -194,11 +195,11 @@ fun App() {
                     }
                     fun hitBox(pos: Offset): Engine.ShopBox? = engine.boxes.firstOrNull {
                         val bp = Offset(it.x * w, it.y * h)
-                        pos.x in bp.x..(bp.x + cw) && pos.y in bp.y..(bp.y + ch * 0.7f)
+                        pos.x in bp.x..(bp.x + shopWpx) && pos.y in bp.y..(bp.y + ch * 0.7f)
                     }
                     fun hitSell(pos: Offset): Boolean {
                         val bp = Offset(engine.sellBoxX * w, engine.sellBoxY * h)
-                        return pos.x in bp.x..(bp.x + cw) && pos.y in bp.y..(bp.y + ch * 0.7f)
+                        return pos.x in bp.x..(bp.x + shopWpx) && pos.y in bp.y..(bp.y + ch * 0.7f)
                     }
                     awaitEachGesture {
                         val down = awaitFirstDown(requireUnconsumed = false)
@@ -218,8 +219,8 @@ fun App() {
                                         sell -> engine.sellCard(dragNode, engine.sellBoxX, engine.sellBoxY)
                                         target != null && target !== dragNode && engine.canDrop(target, dragNode) -> engine.dropOn(target, dragNode)
                                         else -> {
-                                            dragNode.x = (pos.x / w).coerceIn(0.02f, 0.88f)
-                                            dragNode.y = (pos.y / h).coerceIn(0.10f, 0.86f)
+                                            dragNode.x = (pos.x / w).coerceIn(0.02f, 0.92f)
+                                            dragNode.y = (pos.y / h).coerceIn(0.34f, 0.86f)
                                             engine.stacks.add(dragNode)
                                         }
                                     }
@@ -251,14 +252,15 @@ fun App() {
                     }
                 }
         ) {
-            // sell box (bottom-left) — near-black like the real shop row
+            // sell box — near-black like the real shop row
+            val shopW = 72.dp
             val sellPos = Offset(engine.sellBoxX * size.width, engine.sellBoxY * size.height)
-            val sellW = cardW.toPx(); val sellH = cardH.toPx() * 0.7f
+            val sellW = shopW.toPx(); val sellH = cardH.toPx() * 0.7f
             drawRoundRect(Color(0xFF1A1A1A), sellPos, Size(sellW, sellH), CornerRadius(8f, 8f))
-            drawContext.canvas.nativeCanvas.drawText("Sell", sellPos.x + sellW * 0.30f, sellPos.y + sellH * 0.62f, labelPaint)
+            drawContext.canvas.nativeCanvas.drawText("Sell", sellPos.x + sellW * 0.22f, sellPos.y + sellH * 0.62f, labelPaint)
             // shop boxes
             for (box in engine.boxes) {
-                val cw = cardW.toPx(); val ch = cardH.toPx() * 0.7f
+                val cw = shopW.toPx(); val ch = cardH.toPx() * 0.7f
                 val pos = Offset(box.x * size.width, box.y * size.height)
                 drawRoundRect(Color(0xFF1A1A1A), pos, Size(cw, ch), CornerRadius(8f, 8f))
                 drawContext.canvas.nativeCanvas.drawText(box.label, pos.x + 8f, pos.y + ch * 0.42f, labelPaint)
